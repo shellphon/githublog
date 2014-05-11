@@ -24,4 +24,5 @@ title: github上搭建博客
    - 使用markdown
    - 嵌入gist代码
    - 加入外部评论
-   
+   - 外部图片
+   - 分页
