@@ -3,8 +3,6 @@
 	padding: 0;
 }
 div{
-	margin: 0 auto;
-	text-align: center;
 }
 body{
 	background-color: #f3f2ee;
@@ -27,10 +25,26 @@ p{
 	margin: 1.5em;
 	font-size: 0.8em;
 }
+.post *{
+	width: 100%;
+}
+.post-head{
+	text-align: center;
+	margin: 0 auto;
+}
 .container{
 	margin: 0 auto;
 	max-width: 800px;
 	padding: 0 1em;
+}
+.post-footer{
+	margin: 20px auto;
+	text-align: center;
+	border-top: 2px solid #ccc; 
+}
+.portrait{
+	margin: 0 auto;
+	text-align: center;
 }
 .portrait img{
 	width: 200px;
