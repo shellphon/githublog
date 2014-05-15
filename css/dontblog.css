@@ -73,3 +73,16 @@ p{
 #blog-posts h2{
 	text-align: center;
 }
+#blog-posts{
+	width: 80%;
+	margin: 0 auto;
+}
+#blog-posts li{
+	margin: 1.5em;
+	font-size: 0.8em;
+}
+#blog-posts li a{
+}
+#blog-posts li span{
+	float: right;
+}
