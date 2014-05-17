@@ -15,8 +15,8 @@ title: 建立自己的github page
 #####pages描述
 - 实际上，pages除了上述模式外，还有另一种，那是用来为每个repo设置一个介绍页面而整的自动化分支，在github上管理自己的repo页面上，setting页面设置有自动page的功能，按照步骤操作，即可生成repo的一个分支gh-pages，这个分支很特殊，代码上只是提供了一个介绍这个页面的一些配置和下载repo主分支代码的功能，然后通过username.github.io/repo_name 访问这个页面，我是先接触了这个，再接触前面说的page模式，搞得我那时候纠结很久。    
 &emsp;&emsp;一般人在github建的博客，是用的第一种，而我反而用第二种方式，噗。   
-用gh-pages分支搭建博客的时候，平时提交点内容或者更新时，用的是这样的命令：
-```
+用gh-pages分支搭建博客的时候，平时提交点内容或者更新时，用的是这样的命令：    
+> ```
    git pull origin gh-pages
    git push origin gh-pages
 ```
