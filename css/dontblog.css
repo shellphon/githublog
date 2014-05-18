@@ -20,7 +20,7 @@ a{
 p{
 	margin: 1em 0;
 }
-pre{
+blockquote>pre{
 	background-color: rgba(0, 0, 0, 1);
 	border-radius: 8px;
 	overflow-x: scroll;
