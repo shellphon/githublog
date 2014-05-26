@@ -14,7 +14,7 @@ title: github上搭建博客
 2. 搭建本地环境：    
   github上提供的是静态页面，而github提供jekyll技术来实现博客；
     - [安装jekyll](http://skyinlayer.com/blog/2014/01/25/jekyll-1/) 教程 ：主要包括ruby jekyll
-3. 配置
+3. 配置：上面的准备工作就绪之后，就是博客的项目配置问题了，主要结构如下，也可以直接查考我的[githublog](https://github.com/shellphon/githublog/tree/gh-pages)  
    - 项目文件结构
      + _layouts: 目录，用于放置模板文件, 一般有default.html和post.html    
      > ```
