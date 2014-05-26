@@ -20,7 +20,8 @@ title: github上搭建博客
      > ```
 <!DOCTYPE html>    
   <html>    
-    <head>    
+    <head>   
+          <!-- jekyll代码会被自动转换，这里用了反斜杠过滤 --> 
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />    
           <meta name="author" content="Dont" />    
           <link rel="shortcut icon" href="{\{ site.baseurl \}}/fav.ico" type="image/x-icon">    
