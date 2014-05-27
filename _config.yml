@@ -2,3 +2,4 @@ baseurl: /githublog
 encoding: utf-8
 permalink: date
 markdown: rdiscount
+highlighter: pygments
