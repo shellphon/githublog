@@ -94,3 +94,6 @@ blockquote>pre{
 #blog-posts li span{
 	float: right;
 }
+.highlight pre {
+       background-color: #505050;
+}
