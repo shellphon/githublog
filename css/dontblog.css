@@ -20,13 +20,26 @@ a{
 p{
 	margin: 1em 0;
 }
+blockquote p {
+border-left: 5px solid rgb(174, 241, 174);
+padding-left: 15px;
+}
 blockquote>pre{
 	background-color: rgba(0, 0, 0, 1);
 	border-radius: 8px;
-	overflow-x: scroll;
+	overflow-x: auto;
 	padding: 5px;
 	color: #46EB12;
 	font-family: Arial;
+}
+
+blockquote>pre>code{
+	color: #46EB12;
+}
+code{
+	font-style: italic;
+	color: rgba(255, 0, 0, 0.68);
+	padding: 0 3px;
 }
 .post{
 	text-align: left;
@@ -95,5 +108,8 @@ blockquote>pre{
 	float: right;
 }
 .highlight pre {
-       background-color: #505050;
+    background-color: #505050;
+	border-radius: 5px;
+	padding: 5px;
+
 }
