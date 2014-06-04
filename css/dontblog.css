@@ -100,26 +100,17 @@ code{
     top: -20px;
   }
   .back-top .arrow::after{
-/*    content: " ";
+    content: " ";
     display: block;
-    width: 0px;
-    height: 0px;
-    border-width: 16px;
-    border-style: solid;
-    border-color: transparent transparent #FFF transparent;
-    position: absolute;
-    top: -12px;
-    left: -16px;*/
-  }
-  .back-top .stick{
     width: 22px;
     height: 16px;
-   /*  border-width: 2px;
-   border-style: solid;
-   border-color: transparent rgba(219, 74, 74, 0.72) rgba(219, 74, 74, 0.72) rgba(219, 74, 74, 0.72); */
-    background-color: rgba(219, 74, 74, 0.72);
-    position: relative;
-    top: -20px;
+    background-color: rgba(219, 74,74,0.72);
+  /*  border-width: 16px;
+    border-style: solid;
+    border-color: transparent transparent #FFF transparent;*/
+    position: absolute;
+    top: 20px;
+    left: -11px;
   }
 #blog-head{
 	margin: 20px auto;
