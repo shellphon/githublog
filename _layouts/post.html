@@ -4,12 +4,18 @@ body_id: post
 ---
 <div class="post-head">
       <p><a href="{{ site.baseurl }}/">Dont Shellphon Wong</a></p>
-      <h1>{{ page.title }}</h1>
+      <h1 id="postTop">{{ page.title }}</h1>
       <p class="date">{{ page.date | date: "%A, %B %d, %Y" }}</p>
 </div>
   <div class="content">
     <div class="post">
       {{ content }}
+    </div>
+    <div class="back-top">
+        <a href="#postTop">
+          <div class="arrow"></div>
+          <div class="stick"></div>
+        </a>
     </div>
   </div>
   <div id="disqus_thread"></div>
