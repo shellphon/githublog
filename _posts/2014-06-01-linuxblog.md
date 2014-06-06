@@ -27,20 +27,28 @@ deb-src http://mirrors.163.com/ubuntu/ precise-updates universe main multiverse 
 ```    
 
 不过有人说163的不全，这个暂时还没遇到，推荐是用sohu，但作为广东用户，163似乎快一点。  
-然后就可以用`sudo apt-get update`,  `sudo apt-install appname`安装软件.  
-  
-`sudo apt-get install chromium-browser`安装chrome  
+然后就可以用 
+>
+```  
+sudo apt-get update //更新源  
+sudo apt-install appname //安装软件.  
+sudo apt-get install chromium-browser //安装chrome  
+```  
  
 ####问题3：折腾jekyll  
 由于我想在linux上直接用自带的python2.x来支持pygments，所以不得不在linux环境下安装ruby+jekyll，为了同步我在win上安装的ruby平台等等，ubuntu本身自带ruby1.8.x，所以要折腾一下ruby的更新，ruby的更新可以用rvm来做，实现平台多版本的管理。  
+
 1. rvm安装，尝试过`sudo apt-get ruby-rvm` 效果不好 ，`rvm install 版本`的时候总是报错，因此寻找其他方式：这篇简单介绍了[rvm的安装和使用](http://rubyer.me/blog/1054/ )，里面提到的直接bash运行来自github的一个shell脚本，我尝试了，结果说我一定是一个开心的ubuntu用户，然后给了我一个[链接](http://stackoverflow.com/questions/9056008/installed-ruby-1-9-3-with-rvm-but-command-line-doesnt-show-ruby-v/9056395#9056395 )回答里的第一项，按照指令操作，下载和编译差不多6分钟+，然后就可以用rvm了，用`rvm use 2.0.0-p451 --default`来设置默认ruby版本。如果你要的版本不在，也会提示用`rvm install 版本号`来安装；  
+
 2. ruby版本弄好了,但是可能装的时候装到了自己当前用户之下，这时候可能需要设置，否则，以后输入rvm会显示`rvm is not a function...`,  
 现在知道的方法是使用前，先输入  
 `/bin/bash --login`,再输入`rvm use 2.0.0-p451 --default`，  
 接下来就是安装jekyll，用`gem`来安装jekyll，一般ruby应该都安装了gem的，  
 通过`gem list`可以查看`gem`已经安装了什么？`gem`像`apt-get`有自己的源地址，添加国内比较适合的`gem源`[>>](http://skyinlayer.com/blog/2014/01/25/jekyll-1/).  
 设置完源之后，就可以用`gem install jekyll`来安装了。
+
 3. 检查下`pygments`是否已经在`gem list`里哦。 
+
 4. git拷贝下自己的博客代码，然后开始运行`jekyll serve`， 嚓，居然报错，execjs没有，`gem list`是有的，回想起来，怀疑估计是js的运行环境，果然win平台我已经装了nodejs的缘故，只能这里也装一下，ps:这么多语言都need，真的大丈夫么？anyway，都折腾了。
  
 ###最后总结印象：  

@@ -37,7 +37,7 @@ blockquote>pre>code{
 	color: #46EB12;
 }
 code{
-	font-style: italic;
+	/*font-style: italic;*/
 	color: rgba(255, 0, 0, 0.68);
 	padding: 0 3px;
 }
@@ -49,7 +49,7 @@ code{
 .post *{
 	width: 100%;
 }
-.post h3+p,h4+p,h5+p{
+.post h3+p,h4+p,h5+p,h3~ol,h4~ol,h5~ol{
 	margin-left: 1em;
 }
 .post-head{
@@ -86,11 +86,11 @@ code{
     bottom: 80px;
     cursor: pointer;
     opacity: 0.3;
-  }
-  .back-top:hover{
+}
+.back-top:hover{
     opacity: 0.7;
-  }
-  .back-top .arrow{
+}
+.back-top .arrow{
     width: 0px;
     height: 0px;
     border-width: 20px;
@@ -98,8 +98,8 @@ code{
     border-color: transparent transparent rgba(219, 74, 74, 0.72) transparent;
     position: relative;
     top: -20px;
-  }
-  .back-top .arrow::after{
+}
+.back-top .arrow::after{
     content: " ";
     display: block;
     width: 22px;
@@ -111,7 +111,10 @@ code{
     position: absolute;
     top: 20px;
     left: -11px;
-  }
+}
+a#postTop {
+	outline: none;
+}
 #blog-head{
 	margin: 20px auto;
 	text-align: center;
