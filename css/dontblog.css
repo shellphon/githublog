@@ -133,20 +133,34 @@ a#postTop {
 	border-top: 2px solid #ccc; 
 }
 #blog-posts h2{
+	font-size: 2.3em;
+	line-height: 1em;
+	margin: 1em 0 0.3em;
 	text-align: center;
 }
 #blog-posts{
 	width: 80%;
 	margin: 0 auto;
 }
+#blog-posts ul {
+	list-style-type: none;
+	width: 520px;
+	/* text-align: center; */
+	margin: 0 auto;
+	font-size: 1.1em;
+}
 #blog-posts li{
 	margin: 1.5em;
 	font-size: 0.8em;
 }
 #blog-posts li a{
+	text-align: left;
+	float: right;
 }
 #blog-posts li span{
-	float: right;
+	width: 25%;
+	font-size: 0.8em;
+	text-align: right;
 }
 .highlight pre {
     background-color: #505050;
