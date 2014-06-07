@@ -144,7 +144,7 @@ a#postTop {
 }
 #blog-posts ul {
 	list-style-type: none;
-	width: 520px;
+	width: 440px;
 	/* text-align: center; */
 	margin: 0 auto;
 	font-size: 1.1em;
@@ -155,7 +155,7 @@ a#postTop {
 }
 #blog-posts li a{
 	text-align: left;
-	float: right;
+	/*float: right;*/
 }
 #blog-posts li span{
 	width: 25%;
