@@ -24,13 +24,13 @@ title: node活动学习记
 	window下，还是直接用exe安装包来的方便，因为它会自动帮你配置好环境变量，试过复制安装目录，但是如果环境变量不懂，而且配置不好的话，耗费不少时间。（path 以及 node_path）
 	linux下，apt-get安装的好像不是最新版的，所以还是直接下载源代码然后编译安装，不过编译安装前要安装g++,编译安装完，要配置环境变量。（所以环境变量还是要学会配的） 
 
-闯关收获：
-	1.learnyounode 其实跟codeacademy 有点像
-		* 主要知识点是：入门、输出、文件操作、异步同步、管道（不大懂）、http操作、net、server
-		* 我希望能加入关于web后端如 数据库的操作等
-	2. 闯关代码我整理了一下放到了我的[JsReviewStudy](https://github.com/shellphon/JsReviewStudy/tree/master/learnyounodeSolution)上了  
-	3. 自黑吐槽： 
-		写js for循环时，用到length居然写错成了 lenght 然后一直没看出问题所在，因为 undefined在 大于小于的比较中是不会报错的。（同样的错同一天犯了两次）；
-		英语单词我懂啊，可是放在一起就不懂了啊。
+闯关收获：  
+	1. learnyounode 其实跟codeacademy 有点像  
+		* 主要知识点是：入门、输出、文件操作、异步同步、管道（不大懂）、http操作、net、server  
+		* 我希望能加入关于web后端如 数据库的操作等  
+	2. 闯关代码我整理了一下放到了我的[JsReviewStudy](https://github.com/shellphon/JsReviewStudy/tree/master/learnyounodeSolution)上了    
+	3. 自黑吐槽：   
+		写js for循环时，用到length居然写错成了 lenght 然后一直没看出问题所在，因为 undefined在 大于小于的比较中是不会报错的。（同样的错同一天犯了两次）；  
+		英语单词我懂啊，可是放在一起就不懂了啊。  
 		
 		
