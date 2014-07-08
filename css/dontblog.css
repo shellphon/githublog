@@ -49,6 +49,9 @@ code{
 .post *{
 	width: 100%;
 }
+.post>p{
+	text-indent: 2em;
+}
 .post h3+p,h4+p,h5+p,h3~ol,h4~ol,h5~ol{
 	margin-left: 1em;
 }
