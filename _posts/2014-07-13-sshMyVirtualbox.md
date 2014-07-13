@@ -32,6 +32,8 @@ title: ssh访问虚拟机linux
  nameserver 8.8.8.8
 ```  
 
++ 发现上一步骤，重启系统时内容被覆盖了，因此可以改成在第二步的内容里加上 `dns-nameservers 192.168.1.1`  
+
 ##### 二、重启eth0:  
 	建议在linux shell里做，或者重启系统`sudo ifdown eth0`和`sudo ifup eth0`
 
