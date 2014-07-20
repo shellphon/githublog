@@ -1,5 +1,5 @@
 baseurl: /githublog
 encoding: utf-8
-permalink: /:year/:month/:day/:title.html
+permalink: /:year/:month/:title.html
 markdown: rdiscount
 highlighter: pygments
