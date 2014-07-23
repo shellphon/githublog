@@ -21,8 +21,8 @@ p{
 	margin: 1em 0;
 }
 blockquote p {
-border-left: 5px solid rgb(174, 241, 174);
-padding-left: 15px;
+	border-left: 5px solid rgb(174, 241, 174);
+	padding-left: 15px;
 }
 blockquote>pre{
 	background-color: rgba(0, 0, 0, 1);
@@ -115,6 +115,22 @@ code{
     top: 20px;
     left: -11px;
 }
+.cate-div{
+	width: 400px;
+	overflow: hidden;
+	margin: 0 auto;
+}
+.cate-title{
+	float: left;
+	font-size: 1.2em;
+	font-weight: bold;
+	color: rgb(13, 102, 105);
+}
+.cate-num{
+	float: right;
+	font-size: 1.5em;
+	color: #D33428;
+}
 a#postTop {
 	outline: none;
 }
@@ -140,6 +156,14 @@ a#postTop {
 	line-height: 1em;
 	margin: 1em 0 0.3em;
 	text-align: center;
+}
+#blog-posts h3{
+	line-height: 1em;
+	margin: 1em 0 0.3em;
+	text-align: center;
+}
+#blog-posts h3+hr{
+	margin: 1.3em auto;
 }
 #blog-posts{
 	width: 80%;
@@ -169,4 +193,9 @@ a#postTop {
     background-color: #505050;
 	border-radius: 5px;
 	padding: 5px;
+}
+
+#moreWritting{
+	width:100px;
+	margin: 0 auto;
 }

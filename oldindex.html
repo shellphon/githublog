@@ -20,17 +20,13 @@ title: Dont
 
 <div id="blog-posts">
   <h2>日志笔记</h2>
-  <p id="moreWritting"><a href="{{ site.baseurl }}/all.html" title="所有日志">&gt;&gt;more&lt;&lt;</a></p>
   <ul>
-  {% for post in site.posts limit:7 %}
+  {% for post in site.posts %}
     <li>
       <span>{{ post.date | date: "%b %d, %Y" }}</span>
       <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
-    <li>
-    	<a href="{{ site.baseurl }}/all.html">……</a>
-    </li>
   </ul>
 </div>
 <div id="blog-footer">

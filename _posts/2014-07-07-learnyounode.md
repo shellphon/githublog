@@ -1,7 +1,7 @@
 ---
 layout: journal
 title: node活动学习记
-
+category: Journal
 ---
 
  看到H在微博转发的关于学习`nodejs`的活动，于是果断报名了;(由于报名反馈比较晚，我报了两次，囧)  

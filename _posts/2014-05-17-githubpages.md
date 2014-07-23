@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 建立自己的github page
+category: Hello Code
 ---
 
 &emsp;&emsp;鉴于与朋友提到用github展示网页，而无需自己去租服务器。    

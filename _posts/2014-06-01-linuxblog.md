@@ -1,7 +1,7 @@
 ---
 layout: post
 title: linux本地jekyll折腾记
-category: 开发技能
+category: Hello Code
 ---
 
 #####端午三天小长假，麻麻回家，今天就宅在家继续折腾  
