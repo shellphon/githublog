@@ -44,7 +44,7 @@ sudo apt-get install chromium-browser //安装chrome
 现在知道的方法是使用前，先输入  
 `/bin/bash --login`,再输入`rvm use 2.0.0-p451 --default`，  
 接下来就是安装jekyll，用`gem`来安装jekyll，一般ruby应该都安装了gem的，  
-通过`gem list`可以查看`gem`已经安装了什么？`gem`像`apt-get`有自己的源地址，添加国内比较适合的`gem源`[>>](http://skyinlayer.com/blog/2014/01/25/jekyll-1/).  
+通过`gem list`可以查看`gem`已经安装了什么？`gem`像`apt-get`有自己的源地址，添加国内比较适合的`gem源`[>>](https://ruby.taobao.org/).  
 设置完源之后，就可以用`gem install jekyll`来安装了。
 
 3. 检查下`pygments`是否已经在`gem list`里哦。 
