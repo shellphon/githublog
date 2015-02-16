@@ -196,6 +196,7 @@ a#postTop {
 }
 #blog-posts table .post-url{
 	text-align: left;
+	text-indent: 0.5em;
 }
 #blog-posts table .post-url a{
 	font-size: 1em;
