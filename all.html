@@ -15,14 +15,24 @@ title: Dont's Writtings
    <div class="cate-div">
      <span class="cate-title">{{ category | first | upcase}}</span><span class="cate-num">{{ category | last | size }}</span>
    </div>
-   <ul>
+    <table>
+      <colgroup>
+          <col class="post-col1">
+          <col class="post-col2">
+      </colgroup>
+      <tbody>
     {% for post in category.last %}
-    <li>
-      <span>{{ post.date | date: "%b %d, %Y"}}</span>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </li>
+    <tr>
+        <td class="post-date">
+          <span>{{ post.date | date: "%b %d, %Y" }}</span>
+        </td>
+        <td class="post-url">
+          <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+        </td>
+    </tr>
     {% endfor %}
-   </ul>
+   </tbody>
+   </table>
   {% endfor %}
 
 </div>
