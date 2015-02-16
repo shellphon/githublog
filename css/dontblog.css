@@ -182,12 +182,26 @@ a#postTop {
 	margin: 0 auto;
 }
 #blog-posts table .post-col1{
-	width: 25%;
+	width: 30%;
 	text-align: right;
 }
 #blog-posts table .post-col2{
 	width: 70%;
 	text-align: left;
+}
+#blog-posts table .post-date{
+	text-align: right;
+}
+#blog-posts table .post-date span{
+	font-size: 0.8em;
+	color: #bfbfbf;
+}
+#blog-posts table .post-url{
+	text-align: left;
+}
+#blog-posts table .post-url a{
+	font-size: 1em;
+	color: #bfbfbf;
 }
 .highlight pre {
     background-color: #505050;
