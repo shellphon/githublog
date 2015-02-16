@@ -176,25 +176,18 @@ a#postTop {
 	width: 80%;
 	margin: 0 auto;
 }
-#blog-posts ul {
-	list-style-type: none;
+
+#blog-posts table{
 	width: 440px;
-	/* text-align: center; */
 	margin: 0 auto;
-	font-size: 1.1em;
 }
-#blog-posts li{
-	margin: 1.5em;
-	font-size: 0.8em;
-}
-#blog-posts li a{
-	text-align: left;
-	/*float: right;*/
-}
-#blog-posts li span{
+#blog-posts table .post-col1{
 	width: 25%;
-	font-size: 0.8em;
 	text-align: right;
+}
+#blog-posts table .post-col2{
+	width: 70%;
+	text-align: left;
 }
 .highlight pre {
     background-color: #505050;

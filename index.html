@@ -21,17 +21,30 @@ title: Dont
 <div id="blog-posts">
   <h2>日志笔记</h2>
   <p id="moreWritting"><a href="{{ site.baseurl }}/all.html" title="所有日志">&gt;&gt;more&lt;&lt;</a></p>
-  <ul>
-  {% for post in site.posts limit:7 %}
-    <li>
-      <span>{{ post.date | date: "%b %d, %Y" }}</span>
-      <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-    </li>
-  {% endfor %}
-    <li>
-    	<a href="{{ site.baseurl }}/all.html">……</a>
-    </li>
-  </ul>
+  <table>
+      <colgroup>
+          <col class="post-col1">
+          <col class="post-col2">
+      </colgroup>
+      <tbody>
+      {% for post in site.posts limit:7 %}
+        <tr>
+            <td>
+              <span>{{ post.date | date: "%b %d, %Y" }}</span>
+            </td>
+            <td>
+              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+            </td>
+        </tr>
+      {% endfor %}
+        <tr>
+          <td></td>
+          <td>
+            <a href="{{ site.baseurl }}/all.html">……</a>
+          </td>
+        </tr>
+    </tbody>
+  </table>
 </div>
 <div id="blog-footer">
   <p>© 2014 Dont Wong changed from <a href="http://michaeldwan.com/">Michael Dwan</a></p>
