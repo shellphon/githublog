@@ -7,14 +7,14 @@ category: Hello Code
 1. 首先要有github账号。注册省略。    
     - 建立库：github提供两种pages模式，都是按 username.github.io来访问 ，一种是建立名为username.github.io的repo，另一种则是其他repo的setting处，选择自动创建页面（实际是用来做项目页面介绍的，会在项目建立gh-pages分支，所以自动创建出来的页面是以username.github.io/repo_name来访问的，）
     - git知识：常用命令
-> ```
+> ~~~
 git clone https://github.com/username/reponame #拷贝服务器的代码库
 git pull #从远程服务器更新下来#拷贝服务器的代码库
 git push origin master #推送代码更新到远程服务器  
 #如果是gh-pages分支，则一般是 git push origin gh-pages
 git add filename #将文件放入stage区
 git commit -m "comment content" #提交代码
-```
+~~~
 
 2. 搭建本地环境：    
   github上提供的是静态页面，而github提供jekyll技术来实现博客；
@@ -22,7 +22,7 @@ git commit -m "comment content" #提交代码
 3. 配置：上面的准备工作就绪之后，就是博客的项目配置问题了，主要结构如下，也可以直接查考我的[githublog](https://github.com/shellphon/githublog/tree/gh-pages)  
    - 项目文件结构
      + _layouts: 目录，用于放置模板文件, 一般有default.html和post.html    
-     > ```
+     > ~~~
 <!DOCTYPE html>    
   <html>    
     <head>   
@@ -41,7 +41,7 @@ git commit -m "comment content" #提交代码
           </div>    
         </body>    
       </html>     
-```
+~~~
       + _posts:目录，用于放置日志，一般以类似2014-05-12-blogname.md或者.html命名, posts文件可以是markdown格式的文件也可以是html,可以在其头部加入yaml头部变量，以---包围，并且行首不得有空格,头部变量声明layout:default 会引入上面提到的layouts模板文件.
       + _site:自动生成目录，一般不放到github的，在根目录下新建.gitignore文件，然后写下 `/_site` ,git就能忽略其存在，不用每次都提醒你要commit
       + _config.yml 配置文件，一般写下baseurl等如`baseurl: /`或者`baseurl:/reponame`等等
@@ -56,7 +56,7 @@ git commit -m "comment content" #提交代码
    - 加入外部评论
       国外注册disqus,国内可以用多说（貌似）。
       disqus, 注册后自己创建,设置好shortname;之后要加入评论的页面写入下面代码，然后写入下列代码
-      >```
+      > ~~~
         <div id="disqus_thread"></div>    
         <script type="text/javascript">    
         var disqus_shortname = 'Shellphon'; // 注意，这里的 example 要替换为你自己的短域名    
@@ -71,7 +71,7 @@ dsq.async = true;
         </script>    
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>        
         <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-      ```
+      ~~~
    - 外部图片    
      图片托管, 找了一下, 似乎国内七牛不错, 所谓外部图片, 也就是用src用外部链接.
    - 分页    
