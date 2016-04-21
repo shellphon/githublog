@@ -2,4 +2,4 @@ baseurl: /githublog
 encoding: utf-8
 permalink: /:year/:month/:title.html
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
