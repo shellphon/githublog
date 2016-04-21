@@ -3,3 +3,5 @@ encoding: utf-8
 permalink: /:year/:month/:title.html
 markdown: kramdown
 highlighter: rouge
+gems:
+  - jekyll-gist
