@@ -21,7 +21,7 @@ category: Hello Code
 + 然后就是建一个`Gruntfile.js` 。这个是`grunt`的配置执行程序文件来的。
 
 内容如下：
-{% highlight javascript %}
+{% highlight javascript linenos%}
 module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-contrib-uglify');//加载插件
   grunt.initConfig({//配置：配置数据对象，包括一些插件的需要用到的一些配置数据
@@ -63,11 +63,11 @@ module.exports = function(grunt){
 
 有上面那些插件，基本的前端资源处理也就搞定。（我指的是我遇到的一些项目，不包括`less`和图片压缩等等。）
 
-##下面讲述下，学习中，我的一些见解。
+### 下面讲述下，学习中，我的一些见解。
 
-###关于文件对象配置
-+ ####单独压缩的配置：就是一个文件压缩成一个文件（区别于几个文件合并成一个文件那种情况）
-{% highlight javascript %}
+### 关于文件对象配置
++ #### 单独压缩的配置：就是一个文件压缩成一个文件（区别于几个文件合并成一个文件那种情况）
+{% highlight javascript linenos%}
 files:[{
         expand: true,
         //相对路径
@@ -88,7 +88,7 @@ files:[{
 ]
 {% endhighlight %}
 
-+ ####关于配置dest src 和files
++ #### 关于配置dest src 和files
 
 通常：
 > files:{ destUrl : srcUrl }
@@ -110,7 +110,7 @@ dest:destUrl
     
 + `grunt.loadTasks`即`grunt.task.loadTasks` 加载外部的任务注册//这里思考一下就明白，原来插件用loadTasks加载就是在注册任务。  
 //因此，如何自定义自己的小任务?直接用 
-{% highlight javascript %}
+{% highlight javascript linenos%}
 grunt.registerTask(taskName, 'task description', function(){
     doSomeThing();//
 })
@@ -120,11 +120,9 @@ grunt.registerTask(taskName, 'task description', function(){
 
 + 写文件操作：`grunt.file.write(filename, filecontent);`
 
+### 最后附上，学习成果。要是再加点图片压缩啥的，就更好了。
 
-
-##最后附上，学习成果。要是再加点图片压缩啥的，就更好了。
-
-{% highlight javascript %}
+{% highlight javascript linenos%}
 module.exports = function(grunt){
  require('time-grunt')(grunt);
  require('load-grunt-tasks')(grunt,{scope: 'devDependencies'});
