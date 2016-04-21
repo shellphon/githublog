@@ -56,7 +56,7 @@ git commit -m "comment content" #提交代码
    - 加入外部评论
       国外注册disqus,国内可以用多说（貌似）。
       disqus, 注册后自己创建,设置好shortname;之后要加入评论的页面写入下面代码，然后写入下列代码
-      > ~~~
+      > ~~~html
         <div id="disqus_thread"></div>    
         <script type="text/javascript">    
         var disqus_shortname = 'Shellphon'; // 注意，这里的 example 要替换为你自己的短域名    
