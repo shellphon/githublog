@@ -26,11 +26,13 @@ blockquote p {
 	padding-left: 15px;
 }
 pre{
-	background-color: rgba(0, 0, 0, 1);
+	/*background-color: rgba(0, 0, 0, 1);*/
+	background-color:#505050;
 	border-radius: 8px;
 	overflow-x: auto;
 	padding: 5px;
 /*	color: #46EB12;*/
+	color:#6ab825;
 	font-family: Arial;
 }
 
