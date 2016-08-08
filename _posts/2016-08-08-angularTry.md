@@ -14,7 +14,7 @@ category: Hello Code
 与`react`基本`dom`都在`jsx`代码体现不同，`angular`要结合模板和`js`；  
 
 可以先定义好基本dom：
-{%highlight%}
+{%highlight html%}
 <div class="url-box" ng-controller="ubCtrl">
                 <div class="add-form">
                 <div class="form-line">
@@ -70,14 +70,14 @@ angular的概念了，基本是module跟control，考虑到表单跟列表直接
 首先是模板，应该是接受一个变量数组的数据，然后对照到模板，遍历输出对应的dom，其次是点击每个类型，要有一个触发url列表数据的变动展示（这个等说到列表的时候再一并说明）
 
 说到遍历数组，首先想到的应该是ngRepeat指令了，其语法如下：
-{%highlight%}
+{%highlight html%}
 <div ng-repeat="item in list">{{item}}</div>
 
 {%endhighlight%}
 基本可以从代码语义上分析出，这个模板会根据变量list输出所有的div来。
 
 那模仿一下这次实现类型列表的模板如下：
-{%highlight%}
+{%highlight html%}
 <div class="list-type">
     <a class="type-item" ng-repeat="type in types" ng-class="{active:currentType==type}"  ng-click="showList(type)">{{type}}</a>
 </div>
@@ -138,7 +138,7 @@ app.controller('ubCtrl', function($scope){
 可以看到js的处理也很简单。
 
 再来看列表的模板：
-{%highlight%}
+{%highlight html%}
 <div class="list">
     <p class="item" ng-repeat="item in list">
         <a href="{{item.link}}">{{item.desc}}</a>
@@ -164,7 +164,7 @@ $scope.deleteItem = function(id){
 并且，在这里删除时赋值前作的`list.length`判断，其实是针对于，当我点击某个类型的数据展示的时候，我点击删除其中一个数据，此时list并没有对应删除数据，而我要判断当某个类型数据都删完时，需要刷新类型数据，此时，只能先做判断【我感觉是我对`angular`应用规范不熟悉，所以遇到bug只能暂时这么处理着先】
 
 那么到此为止，剩下的就是表单的实现了。先看模板：
-{%highlight%}
+{%highlight html%}
 <div class="add-form">
     <div class="form-line">
         <label for="url_input">URL&ensp;:</label>
@@ -195,7 +195,7 @@ $scope.deleteItem = function(id){
 最后那个是change事件触发跟click差不多，
 
 `ngOptions`则跟`ngRepeat`有点相似，不过这个用于select标签，语法细化到输出label和value两个值。 看模板上的使用：
-{%highlight%}
+{%highlight html%}
 <select id="type_input" ng-model="listType" ng-init="listType=types2Select[0]" ng-options="type.label for type in types2Select" ng-change="selectType()">
 </select>
 
