@@ -35,7 +35,9 @@ pre{
 	color:#6ab825;
 	font-family: Arial;
 }
-
+code {
+    font-family: Microsoft Yahei, Georgia, Times, serif;
+}
 pre>code{
 	color: #46EB12;
 }
