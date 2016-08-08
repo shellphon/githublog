@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  angular demo体验
+title:  angular体验
 category: Hello Code
 ---
 
