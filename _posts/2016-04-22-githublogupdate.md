@@ -39,3 +39,14 @@ highlighter: rouge
 gems:
   - jekyll-gist
 ~~~
+
+update
+-
+
+换了有一阵子的rouge,发现一些问题，关于主题，查了下资料，可以通过rouge生成代码主题样式
+
+~~~
+rougify style monokai.sublime > highlight.css
+~~~
+
+另外是代码的字体特别不好看，看了下，给`.highlight`类增加了`font-family`即可。
