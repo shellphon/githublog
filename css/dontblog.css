@@ -222,3 +222,41 @@ a#postTop {
   width: 50px;
   margin: 0 auto;
 }
+
+.fly{
+	width: 200px;
+	max-height: 400px;
+	background-color: rgba(0,0,0,.2); 
+	border-radius: 8px;
+	position: fixed;
+	left: 68px;
+	top: 200px;
+	padding: 10px;
+}
+.fly__url{
+	width: 100%;
+}
+.fly__url a{
+	display: inline-block;
+	margin-right: 15px;
+	font-size: 14px;
+}
+.fly__url a:hover{
+	color: #999;
+}
+.fly__url h4{
+	color: #666;
+	border-bottom: 1px solid #fff;
+	margin-bottom: 8px;
+}
+
+@media (min-width: 1200px) and (max-width: 1439px) {
+	.fly{
+		left:0;
+	}
+ }
+ @media (max-width: 1200px) {
+	.fly{
+		display: none;
+	}
+ }
