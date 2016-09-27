@@ -2,6 +2,8 @@
 layout: post
 title: grunt学习笔记
 category: Hello Code
+keywords: grunt,笔记
+description: grunt学习笔记
 ---
 平时项目要么用`ant`，要么用`fis`来自动化构建项目.
 
