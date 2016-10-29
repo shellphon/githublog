@@ -115,4 +115,4 @@ jQuery.ajaxTransport( "script", function( s ) {
 
 这才想起来，当时面试最终提示的也是timeout关键字，也就是面试的目的是想知道面试者是否知道这一特点吧。
 
-囧
+![image](http://dont27.qiniudn.com/jqueryajax.png)

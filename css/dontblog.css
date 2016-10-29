@@ -61,6 +61,9 @@ code{
 .post *{
 	/* width: 100%; */
 }
+.post img{
+	max-width: 100%;
+}
 .post.journal>p{
 	text-indent: 2em;
 }
