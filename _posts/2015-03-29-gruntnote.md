@@ -1,7 +1,7 @@
 ---
 layout: post
 title: grunt学习笔记
-category: Hello Code
+category: Tool
 keywords: grunt,笔记
 description: grunt学习笔记
 ---
