@@ -11,7 +11,7 @@
 	 <link rel="stylesheet" href="{{ site.baseurl }}/css/highlight.css" type="text/css">
   </head>
   <body id="{{ page.body_id }}">
-    <div class="fly">
+    <div id="fly_content" class="fly">
       <div class="fly__url">
         <h4>友链</h4>
         <a href="http://firewood1122.github.io" target="_blank">小猪</a>
@@ -24,6 +24,17 @@
     <div class="container">
     {{ content }}
     </div>
+  <script type="text/javascript">
+    var flyDom = document.getElementById('fly_content');
+    flyDom.addEventListener('mouseover', function(){
+      flyDom.style.width = '200px';
+      flyDom.style.height = 'auto';
+    });
+    flyDom.addEventListener('mouseout',function(){
+      flyDom.style.width = '40px';
+      flyDom.style.height = '30px';
+    });
+  </script>
   <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254421853' class='cnzz-logo-span' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254421853%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
   <script>
     var _hmt = _hmt || [];

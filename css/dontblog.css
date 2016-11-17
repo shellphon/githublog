@@ -76,7 +76,7 @@ code{
 }
 .container{
 	margin: 0 auto;
-	max-width: 800px;
+	max-width: 1000px;
 	padding: 0 1em;
 }
 .post-footer{
@@ -227,7 +227,8 @@ a#postTop {
 }
 
 .fly{
-	width: 200px;
+	width: 40px;
+	height: 30px;
 	max-height: 400px;
 	background-color: rgba(0,0,0,.2); 
 	border-radius: 8px;
@@ -235,6 +236,8 @@ a#postTop {
 	left: 68px;
 	top: 200px;
 	padding: 10px;
+	overflow: hidden;
+	transition: all .8s ease;
 }
 .fly__url{
 	width: 100%;
@@ -253,13 +256,14 @@ a#postTop {
 	margin-bottom: 8px;
 }
 
-@media (min-width: 1200px) and (max-width: 1439px) {
+@media (min-width: 1080px) and (max-width: 1439px) {
 	.fly{
 		left:0;
 	}
  }
- @media (max-width: 1200px) {
+ @media (max-width: 1080px) {
 	.fly{
-		display: none;
+		left:0;
+		top:20px;
 	}
  }
