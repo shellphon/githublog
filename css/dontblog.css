@@ -242,6 +242,9 @@ a#postTop {
 .fly__url{
 	width: 100%;
 }
+.fly__url .fly__url__link{
+	display: none;
+}
 .fly__url a{
 	display: inline-block;
 	margin-right: 15px;

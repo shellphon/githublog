@@ -14,11 +14,13 @@
     <div id="fly_content" class="fly">
       <div class="fly__url">
         <h4>友链</h4>
-        <a href="http://firewood1122.github.io" target="_blank">小猪</a>
-        <a href="http://www.zhangxinxu.com/" target="_blank">张鑫旭</a>
-        <a href="http://www.barretlee.com/" target="_blank">小胡子哥</a>
-        <a href="http://justjavac.com/" target="_blank">jjc大大</a>
-        <a href="https://zhanhao.xyz" target="_blank">豪</a>
+        <div class="fly__url__link">
+          <a href="http://firewood1122.github.io" target="_blank">小猪</a>
+          <a href="http://www.zhangxinxu.com/" target="_blank">张鑫旭</a>
+          <a href="http://www.barretlee.com/" target="_blank">小胡子哥</a>
+          <a href="http://justjavac.com/" target="_blank">jjc大大</a>
+          <a href="https://zhanhao.xyz" target="_blank">豪</a>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -26,13 +28,25 @@
     </div>
   <script type="text/javascript">
     var flyDom = document.getElementById('fly_content');
+    var flyLinks = document.getElementsByClassName('fly__url__link')[0];
+    var handle = null;
     flyDom.addEventListener('mouseover', function(){
       flyDom.style.width = '200px';
       flyDom.style.height = 'auto';
+      if(handle){
+        clearTimeout(handle);
+      }
+      handle = setTimeout(function(){
+          flyLinks.style.display='block';
+        },500);
     });
     flyDom.addEventListener('mouseout',function(){
       flyDom.style.width = '40px';
       flyDom.style.height = '30px';
+      if(handle){
+        clearTimeout(handle);
+      }
+      flyLinks.style.display = 'none';
     });
   </script>
   <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254421853' class='cnzz-logo-span' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254421853%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
