@@ -30,7 +30,7 @@
     var flyDom = document.getElementById('fly_content');
     var flyLinks = document.getElementsByClassName('fly__url__link')[0];
     var handle = null;
-    flyDom.addEventListener('mouseover', function(){
+    flyDom.addEventListener('mouseenter', function(){
       flyDom.style.width = '200px';
       flyDom.style.height = 'auto';
       if(handle){
@@ -40,7 +40,7 @@
           flyLinks.style.display='block';
         },500);
     });
-    flyDom.addEventListener('mouseout',function(){
+    flyDom.addEventListener('mouseleave',function(){
       flyDom.style.width = '40px';
       flyDom.style.height = '30px';
       if(handle){
