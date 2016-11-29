@@ -17,8 +17,10 @@ description:
 在`freemarker`端，做过的项目里，其用的是自定义标签来实现。
 
 代码如下：
+
+页面A的ftl
+
 {%highlight html%}
-//页面A的ftl
 <@override name="block_head_static">
 </@override>
 <@override name="block_page_vars">
@@ -28,9 +30,11 @@ description:
     <@widget name="home:widget/address_list/address_list.ftl" />
 </@override>
 <@extends name="../../common/page/layout.ftl" />
+{%endhighlight%}
 
+layout 模板 原版太长，做一下简化
 
-//layout 模板 原版太长，做一下简化
+{%highlight html%}
 <!DOCTYPE html>
 <@block name="block_page_vars"></@block>
 <@html framework="common:static/mod.js">
@@ -210,6 +214,15 @@ Handlebars.registerPartial('myPartial', '{{name}}')
 
 `handlebars`还有个好处是，当`partial`不存在的情况下，也可以有默认输出，换做`freemarker`一般是要报错的。
 
+另外，在freemarker里偶尔会用到assign来给模板里加入变量定义赋值的设置，这点在handlebars也可以实现，只是方式不同：
+
+~~~
+{%raw%}
+{{#> layout title="test" }}
+  <p>比如在调用layout partial时，代入变量赋值的操作，将test字符串赋值给title变量</p>
+{{/layout}}
+{%endraw%}
+~~~
 
 参考： [https://cloudfour.com/thinks/the-hidden-power-of-handlebars-partials/](https://cloudfour.com/thinks/the-hidden-power-of-handlebars-partials/)
 
