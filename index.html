@@ -1,53 +1,20 @@
 ---
-body_id: welcome
 layout: default
-title: Dont的博客
-keywords: Dont,前端,博客
-description: Dont,前端工程师,这是我的博客,偶尔写写文章,记录学习
+title: Home
 ---
-<div id="blog-head">
-  <h1>Dont Wong</h1>
-</div>
-<div id="blog-about">
-  <div class="portrait">
-   <!-- <img src="images/me.png"/>
-   -->
-   <img src="images/pa.jpg" />
+
+<div class="posts">
+  {% for post in site.posts %}
+  <div class="post">
+    <h1 class="post-title">
+      <a href="{{ post.url }}">
+        {{ post.title }}
+      </a>
+    </h1>
+
+    <span class="post-date">{{ post.date | date_to_string }}</span>
+
+    <p class="excerpt">{{ post.excerpt | remove: '<p>' | remove: '</p>' }}……&emsp;&emsp;<a class="more" href="{{ post.url }}">more</a></p>
   </div>
-  <p>
-    我是<em>Dont</em>. 喜欢画画，喜欢ukulele，喜欢骑单车，喜欢自己动手做东西.有想法，那就去实现，coding and changing.
-  </p>
-  <p>交流：<a href="http://weibo.com/dont27">微博</a>&nbsp;|&nbsp;<a href="http://segmentfault.com/u/dont">sf</a>&nbsp;|&nbsp;<a href="http://www.cnblogs.com/dont27/">cnblog</a>&nbsp;|&nbsp;<a href="https://github.com/shellphon">Github</a>&nbsp;|&nbsp;<a href="http://shellphon.github.io">主页</a></p>
+  {% endfor %}
 </div>
-
-<div id="blog-posts">
-  <h2>日志笔记</h2>
-  <p id="moreWritting"><a href="{{ site.baseurl }}/all.html" title="所有日志">&gt;&gt;more&lt;&lt;</a></p>
-  <table>
-      <colgroup>
-          <col class="post-col1">
-          <col class="post-col2">
-      </colgroup>
-      <tbody>
-      {% for post in site.posts limit:7 %}
-        <tr>
-            <td class="post-date">
-              <span>{{ post.date | date: "%b %d, %Y" }}</span>
-            </td>
-            <td class="post-url">
-              <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
-            </td>
-        </tr>
-      {% endfor %}
-        <tr>
-          <td style="text-align: center;" colspan="2">
-            <a href="{{ site.baseurl }}/all.html">……</a>
-          </td>
-        </tr>
-    </tbody>
-  </table>
-</div>
-<div id="blog-footer">
-  <p>© 2014 Dont Wong changed from <a href="http://michaeldwan.com/">Michael Dwan</a></p>
-</div>
-

@@ -1,0 +1,35 @@
+snslinks:
+  - name: 微博
+    url: http://weibo.com/dont27
+  - name: sf
+    url: http://segmentfault.com/u/dont
+  - name: cnblog
+    url: http://www.cnblogs.com/dont27/
+  - name: Github
+    url: https://github.com/shellphon
+
+funlinks:
+  - name: 匹配小游戏
+    url: http://shellphon.wang/funs/matches.html
+
+  - name: 告白吧
+    url: http://shellphon.wang/funs/love.html
+
+  - name: 不想和你说话生成器
+    url: http://shellphon.wang/funs/notalk.html
+
+friendlinks:
+  - name: 小猪
+    url: http://blog.smallpig.cn
+  
+  - name: 张鑫旭
+    url: http://www.zhangxinxu.com/
+  
+  - name: 小胡子哥
+    url: http://www.barretlee.com/
+  
+  - name: jjc大大
+    url: http://justjavac.com/
+  
+  - name: 豪
+    url: https://zhanhao.xyz

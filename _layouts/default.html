@@ -1,38 +1,25 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="author" content="Dont" />
-    <meta name="Keywords" Content="{{ page.keywords }}">
-    <meta name="Description" Content="{{ page.description }}">
-    <link rel="shortcut icon" href="{{ site.baseurl }}/fav.ico" type="image/x-icon">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/dontblog.css" type="text/css" media="screen, projection">
-	 <link rel="stylesheet" href="{{ site.baseurl }}/css/highlight.css" type="text/css">
-  </head>
-  <body id="{{ page.body_id }}">
-    <div id="fly_content" class="fly">
-      <div class="fly__url">
-        <h4>友链</h4>
-        <div class="fly__url__link">
-          <a href="http://firewood1122.github.io" target="_blank">小猪</a>
-          <a href="http://www.zhangxinxu.com/" target="_blank">张鑫旭</a>
-          <a href="http://www.barretlee.com/" target="_blank">小胡子哥</a>
-          <a href="http://justjavac.com/" target="_blank">jjc大大</a>
-          <a href="https://zhanhao.xyz" target="_blank">豪</a>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-    {{ content }}
+
+  {% include head.html %}
+
+  <body>
+
+    {% include sidebar.html %}
+
+    <div class="content mid">
+      {{ content }}
     </div>
   <script type="text/javascript">
     var flyDom = document.getElementById('fly_content');
+    var portraitDom = document.getElementById('portrait_wrap');
     var flyLinks = document.getElementsByClassName('fly__url__link')[0];
     var handle = null;
     flyDom.addEventListener('mouseenter', function(){
-      flyDom.style.width = '200px';
-      flyDom.style.height = 'auto';
+      var cls = flyDom.className;
+      if(!/showAll/.test(cls)){
+      		flyDom.className = cls+' showAll';
+      }
       if(handle){
         clearTimeout(handle);
       }
@@ -41,12 +28,34 @@
         },500);
     });
     flyDom.addEventListener('mouseleave',function(){
-      flyDom.style.width = '40px';
-      flyDom.style.height = '30px';
+      var cls = flyDom.className;
+      if(/showAll/.test(cls)){
+      		flyDom.className = cls.split(' ').filter(function(e,i){
+      			if(e=='showAll'){
+      				return false;
+      			}
+      			return true;
+      		}).join(' ');
+      }
       if(handle){
         clearTimeout(handle);
       }
       flyLinks.style.display = 'none';
+    });
+    portraitDom.addEventListener('click',function(e){
+    	var cls = portraitDom.className,
+    	clss = cls.split(' ');
+    	 if(/show/.test(cls)){
+      		portraitDom.className = clss.filter(function(e,i){
+      			if(e=='show'){
+      				return false;
+      			}
+      			return true;
+      		}).join(' ');
+      	}else{
+      		clss.push('show');
+      		portraitDom.className =  clss.join(' ');
+      	}
     });
   </script>
   <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254421853' class='cnzz-logo-span' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254421853%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
@@ -59,6 +68,5 @@
       s.parentNode.insertBefore(hm, s);
     })();
   </script>
-
   </body>
 </html>

@@ -1,15 +1,9 @@
 ---
-body_id: welcome
-layout: default
-title: Dont's Writtings
+layout: page
+title: 所有文章
 ---
-<div class="post-head">
-  <p>
-    <a id="postTop" href="{{ site.baseurl }}/">Dont Shellphon Wong</a>
-  </p>
-</div>
+
 <div id="blog-posts">
-  <h3>所有分类文章</h3>
   <hr />
   {% for category in site.categories reversed  %}
    <div class="cate-div">
@@ -36,7 +30,3 @@ title: Dont's Writtings
   {% endfor %}
 
 </div>
-<div id="blog-footer">
-  <p>© 2014 Dont Wong changed from <a href="http://michaeldwan.com/">Michael Dwan</a></p>
-</div>
-

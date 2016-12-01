@@ -1,5 +1,5 @@
 ---
-layout: journal
+layout: post
 title: node活动学习记
 category: Journal
 ---
