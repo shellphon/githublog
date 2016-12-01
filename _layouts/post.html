@@ -14,7 +14,7 @@ layout: default
     {% for post in site.related_posts limit:3 %}
       <li>
         <h3>
-          <a href="{{ post.url }}">
+          <a href="{{ site.baseurl }}{{ post.url }}">
             {{ post.title }}
             <small>{{ post.date | date_to_string }}</small>
           </a>
@@ -37,7 +37,7 @@ layout: default
  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a> -->
  <!-- 多说评论框 start -->
-<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ page.url }}"></div>
+<div class="ds-thread" data-thread-key="{{ page.id }}" data-title="{{ page.title }}" data-url="{{ site.homelink }}{{ site.baseurl }}{{ page.url }}"></div>
 <!-- 多说评论框 end -->
 <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 <script type="text/javascript">
