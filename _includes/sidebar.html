@@ -3,11 +3,9 @@
       <div class="fly__url">
         <h4>友链</h4>
         <div class="fly__url__link">
-          <a href="http://firewood1122.github.io" target="_blank">小猪</a>
-          <a href="http://www.zhangxinxu.com/" target="_blank">张鑫旭</a>
-          <a href="http://www.barretlee.com/" target="_blank">小胡子哥</a>
-          <a href="http://justjavac.com/" target="_blank">jjc大大</a>
-          <a href="https://zhanhao.xyz" target="_blank">豪</a>
+          {% for link in site.data.my.friendlinks%}
+             <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+          {% endfor %}
         </div>
       </div>
     </div>
