@@ -6,7 +6,7 @@ keywords: handlebars, javascript, templateEngine
 description: 
 ---
 
-### 怎么用handlebars做模板嵌入？
+最近在思考怎么用handlebars做模板嵌入？
 
 `handlebars`是一个基于js的模板引擎，作为普通的前端模板引擎，语法都差不多。
 
