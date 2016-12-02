@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 关于me
+title: 关于我
 ---
 
 <p class="message">
