@@ -1,13 +1,18 @@
 var gulp = require("gulp"),
 	cleanCss = require('gulp-clean-css'),
-	clean = require('gulp-clean');
+	clean = require('gulp-clean'),
+	rename = require('gulp-rename'),
+	tmp;
 	/*
 	concat = require('gulp-concat');
 var htmlmin = require('gulp-htmlmin'),
 	*/
 
 gulp.task('default',['css'],function(){
-	return gulp.src('./tmp/**/*').pipe(gulp.dest('./'));
+	return gulp.src('./tmp/**/*',{nodir:true})
+		.pipe(rename({
+			suffix:'-slv'
+		})).pipe(gulp.dest('./'));
 });
 
 gulp.task('clean',function(){

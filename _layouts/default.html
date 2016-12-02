@@ -42,34 +42,14 @@
       }
       flyLinks.style.display = 'none';
     });
-    /*portraitDom.addEventListener('click',function(e){
-    	var cls = portraitDom.className,
-    	clss = cls.split(' ');
-    	 if(/show/.test(cls)){
-      		portraitDom.className = clss.filter(function(e,i){
-      			if(e=='show'){
-      				return false;
-      			}
-      			return true;
-      		}).join(' ');
-      	}else{
-      		clss.push('show');
-      		portraitDom.className =  clss.join(' ');
-      	}
-    });*/
-    portraitDom.addEventListener('click',function(e){
-      if(interHandle){
-        clearInterval(interHandle);
-      }else{
-        transform();
-      }
-    });
-    var interHandle;
+
+  
     transform();
     function transform(){
 
-      setTimeout(function(){
-        interHandle = setInterval(function(){
+     setTimeout(function(){
+       
+        setInterval(function(){
           var cls = portraitDom.className,
           clss = cls.split(' ');
            if(/show/.test(cls)){
@@ -83,11 +63,12 @@
               clss.push('show');
               portraitDom.className =  clss.join(' ');
             }
-        }, 5000);
+        }, 10000);
       },5000);
     }
   </script>
-  <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254421853' class='cnzz-logo-span' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254421853%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!--   <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1254421853' class='cnzz-logo-span' %3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s11.cnzz.com/z_stat.php%3Fid%3D1254421853%26show%3Dpic' type='text/javascript'%3E%3C/script%3E"));</script> -->
   <script>
     var _hmt = _hmt || [];
     (function() {

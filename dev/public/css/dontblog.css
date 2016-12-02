@@ -426,18 +426,7 @@ a.sidebar-nav-item:focus {
   top: auto;
 }
 
-@media (min-width: 48em) {
-  .portrait-wrap{
-    width: auto;
-    text-align: left;
-  }
-  .sidebar-sticky {
-    position: absolute;
-    right:  1rem;
-    bottom: 1rem;
-    left:   1rem;
-  }
-}
+
 /*三勾玉写轮眼*/
 .sharingan{
   background-color:#b22222;
@@ -446,6 +435,7 @@ a.sidebar-nav-item:focus {
   border-radius:50%;
   border:2px solid #000;
   position:relative;
+  margin: 0 auto;
   /* box-shadow: 0 0 0 6px rgba(0,0,0,0.3) inset; */
   box-shadow: 0 0 0 4px rgba(0,0,0,.1) inset,0 0 0 12px rgba(0,0,0,.1) inset;
   transition: transform linear 1s;
@@ -517,6 +507,21 @@ a.sidebar-nav-item:focus {
     bottom: -8px;
     left: 1px;
     transform: rotate(240deg);
+}
+@media (min-width: 48em) {
+  .portrait-wrap{
+    width: auto;
+    text-align: left;
+  }
+  .sharingan{
+    margin: 0;
+  }
+  .sidebar-sticky {
+    position: absolute;
+    right:  1rem;
+    bottom: 1rem;
+    left:   1rem;
+  }
 }
 
 /* Container
