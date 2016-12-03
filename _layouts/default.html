@@ -15,6 +15,24 @@
     var portraitDom = document.getElementById('portrait_wrap');
     var flyLinks = document.getElementsByClassName('fly__url__link')[0];
     var handle = null;
+
+    var themes = '89abcdefg'.split(''),
+        thLen = themes.length;
+
+    var themeChange = document.getElementById('change_theme');
+
+    themeChange.onclick = function(){
+        var rand = Math.round(Math.random()*(thLen-1)),
+            oldCls = document.body.className;
+            
+        if(oldCls==''){
+
+          document.body.className = 'theme-base-0'+themes[rand];
+        }else{
+          document.body.className = oldCls.replace(/0\w/, '0'+themes[rand]);
+        }
+    };
+
     flyDom.addEventListener('mouseenter', function(){
       var cls = flyDom.className;
       if(!/showAll/.test(cls)){
