@@ -404,6 +404,7 @@ a.sidebar-nav-item:focus {
   transition: all .8s ease; 
   width: 11.11rem;
   text-align: center;
+  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: absolute;
   top: 0;
