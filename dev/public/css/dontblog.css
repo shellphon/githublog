@@ -183,6 +183,7 @@ p>code,h1>code,h2>code,h3>code,h4>code,h5>code,h6>code,li>code {
 code{
   /*font-style: italic;*/
   color: rgba(255, 0, 0, 0.68);
+  font-family: Consolas,Menlo,Monaco,monospace;
   /* padding: 0 3px; */
 }
 
