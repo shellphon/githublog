@@ -20,7 +20,7 @@ description:
 
 页面A的ftl
 
-{%highlight html%}
+{%highlight jsp%}
 <@override name="block_head_static">
 </@override>
 <@override name="block_page_vars">
@@ -34,7 +34,7 @@ description:
 
 layout 模板 原版太长，做一下简化
 
-{%highlight html%}
+{%highlight jsp%}
 <!DOCTYPE html>
 <@block name="block_page_vars"></@block>
 <@html framework="common:static/mod.js">
