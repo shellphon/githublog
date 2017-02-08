@@ -772,6 +772,7 @@ a.sidebar-nav-item:focus {
 .cate-div{
   width: 22.22rem;
   overflow: hidden;
+  margin: 1em 0 0;
 }
 .cate-title{
   float: left;

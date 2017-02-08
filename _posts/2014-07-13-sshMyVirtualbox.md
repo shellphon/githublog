@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ssh访问虚拟机linux
-category: Hello Code
+category: Hellocode
 ---
 终于开始折腾怎么`ssh`连接虚拟机了。
 

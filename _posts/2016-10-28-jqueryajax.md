@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  浅读jquery源码之ajax
-category: Hello Code
+category: Hellocode
 keywords: jquery, ajax, jsonp, sourcecode
 description: 
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  vue使用示例集
-category: Hello Code
+category: Hellocode
 keywords: vuejs2, vue-cli
 description: 主要放一些用vue来实现的一些功能集合
 ---

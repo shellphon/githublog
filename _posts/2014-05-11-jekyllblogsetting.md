@@ -1,7 +1,7 @@
 ---
 layout: post
 title: github上搭建博客
-category: Hello Code
+category: Hellocode
 ---
 
 1. 首先要有github账号。注册省略。    

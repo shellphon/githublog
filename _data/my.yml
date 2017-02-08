@@ -33,3 +33,5 @@ friendlinks:
   
   - name: 豪
     url: https://zhanhao.xyz
+
+category: { Hellocode: 码不停蹄, Test: 无聊测试, Journal: 青云流水, Tool: 刀耕火种  }

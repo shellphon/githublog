@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  博客改版啦2016
-category: Hello Code
+category: Hellocode
 keywords: jekyll, github, responsible web
 description: 
 ---

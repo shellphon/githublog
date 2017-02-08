@@ -7,7 +7,15 @@ title: 所有文章
   <hr />
   {% for category in site.categories reversed  %}
    <div class="cate-div">
+     {%comment%}
      <span class="cate-title">{{ category | first | upcase}}</span><span class="cate-num">{{ category | last | size }}</span>
+     {{category[0]}}
+     {%endcomment%}
+     {%for item in site.data.my.category %}
+      {%if item[0] == category[0] %}
+     <span class="cate-title">{{ item[1] }}</span><span class="cate-num">{{ category | last | size }}</span>
+      {% endif %}
+     {% endfor %}
    </div>
     <table>
       <colgroup>

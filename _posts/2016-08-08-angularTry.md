@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  angular体验
-category: Hello Code
+category: Hellocode
 ---
 
 上次学着用react写了一个url收藏简单功能。这次照着这个需求，用`angular1`来实践一下。  
