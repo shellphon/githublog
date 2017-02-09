@@ -789,3 +789,20 @@ a.sidebar-nav-item:focus {
   margin: 0;
 }
 
+.cate-posts{
+  list-style: none;
+  overflow: hidden;
+  transition: height .5s ease;
+  margin-bottom: .2em;
+}
+.cate-posts.more{
+   height: 7.5em;
+}
+.cate-posts .post-date{
+  display: inline-block;
+  width: 8em;
+  margin-right: 1em;
+}
+.cate-posts .post-url{
+  display: inline-block;
+}
