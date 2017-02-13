@@ -150,3 +150,4 @@ function(module, exports){
 
 关于`installedChunks`变量，用于标记chunk的加载状态，主要用于异步加载，当对应索引的内容为0时，表示该chunk已经加载过了，如果正在加载，则为数组（回调函数数组）。当chunk在 `wpJsonp`执行时加载已经完成，其逻辑也会去判断回调，统一执行回调，并将对应标识置零。
 
+编译结果内，会将用到的chunk都整理到`ensure`的script加载逻辑内，根据chunkId来索引加载。
