@@ -15,3 +15,9 @@ description: 主要放一些用vue来实现的一些功能集合
 ### 抽数字
 <iframe width="100%" height="400" src="//jsfiddle.net/dont27/8u7map0p/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 抽数字，规则从0-9999中随机抽出一个数。很简单的一个功能，实际实现也不难，大致的数据变化速度可以照搬方块抽奖的逻辑，而且生成数字的逻辑很简单。我觉得最好在于数字切换的实现上，我的做法是，每位数都用一个截断的父元素放置着，子元素则是一个竖着的0-9的数字排列，通过调整排列子元素的偏移位置，使得有一种数字纵向切换的感觉。
+
+### 简易轮播
+
+<iframe width="100%" height="300" src="//jsfiddle.net/dont27/Lmoj6uq0/6/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+轮播原理在于控制列表横线移动，设置相对定位，数据驱动主要为 索引值的变动，变动带动偏移值的变化，以及涉及其他比如定时变化索引值等，由于多个方法要用到定时，可以将定时句柄作为数据之一，以便重置。
