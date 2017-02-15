@@ -21,3 +21,9 @@ description: 主要放一些用vue来实现的一些功能集合
 <iframe width="100%" height="300" src="//jsfiddle.net/dont27/Lmoj6uq0/6/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 轮播原理在于控制列表横线移动，设置相对定位，数据驱动主要为 索引值的变动，变动带动偏移值的变化，以及涉及其他比如定时变化索引值等，由于多个方法要用到定时，可以将定时句柄作为数据之一，以便重置。
+
+### 循环轮播
+
+<iframe width="100%" height="300" src="//jsfiddle.net/dont27/Lmoj6uq0/11/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+在上一个简易轮播基础上，做一个切换轮播只从左向右切换的效果，实际原理是拷贝一份放置于后面，每次切换保证都是往后切换，只是当切换到拷贝部分时，再短延迟切换回第一部分对应的位置去，这个时候取消css延迟属性即可。
