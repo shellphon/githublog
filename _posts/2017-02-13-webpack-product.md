@@ -8,7 +8,7 @@ description: 浅析webpack的模块化代码
 
 最近整理走读了一下`webpack`产出的模块化代码，于是做一下记录，还没遇到过复杂的情况，只是浅析一下。
 
-在写node代码的时候，模块化很自然，就是要封装模块的js，最后`module.exports=xxx`，在引用的时候`require('xxx')`即可，而在浏览器端的情况下，一般封装模块的js最后会套上一层`function`如下：
+在写node代码的时候，模块化很自然，就是要封装模块的js，最后`module.exports=xxx`，在引用的时候这样写即可`require('xxx')`，而在浏览器端的情况下，一般封装模块的js最后会套上一层`function`如下：
 
 {%highlight javascript%}
 function(module, exports){
@@ -17,9 +17,9 @@ function(module, exports){
 }
 {%endhighlight%}
 
-这个方法执行体在执行之后返回了一个module对象，其包含了被封装好的内容。
+这个方法执行体在执行之后，将实际模块封装的对象存入`module`。
 
-而用webpack产出的模块化代码基本是这样的
+而用`webpack`产出的模块化代码基本是这样的。
 
 {%highlight javascript%}
 (function(modules) { // webpackBootstrap
@@ -142,11 +142,17 @@ function(module, exports){
 
 入口文件entry以及需要异步加载的模块js都被编译成`webpackJsonp()`的函数执行结构，`wpJsonp`的主要作用，就是将模块的执行内容存放到modules中，以方便`wpRequire`的时候，需要的模块能被找到执行体并初始化生成对应的module模块，在这个过程中，`moduleId`就是模块执行体以及模块对象的索引值。
 
-另外`wpJsonp`还有一个逻辑是执行chunk的回调，即异步加载模块在加载完成并执行时，会触发执行`wpRequire.ensure`时加入的回调内容。在这过程中，ensure主要负责的是将回调收集（模块正在加载中）或者执行回调（之前已经加载过了）或者开辟缓存位置（installedChunks）并启用`script`加载js。而`chunkId`主要为入口文件或者异步加载文件的索引值。
+另外`wpJsonp`还有一个逻辑是执行chunk的回调，即异步加载模块在加载完成并执行时，会触发执行`wpRequire.ensure`时加入的回调内容。在这过程中，ensure主要负责的是：
+
+1. 将回调收集（模块正在加载中）  
+2. 执行回调（之前已经加载过了）
+3. 开辟缓存位置（`installedChunks`）并启用`script`加载js。
+
+而`chunkId`主要为入口文件或者异步加载文件的索引值。
 
 代码走读过程比较绕，但经过整理一遍之后就明确了不少。
 
-关于`installedModules`变量，用于存储加载好的模块对象，当对应索引的内容为0时，没有含义，因为逻辑在判断if时认识其没有模块，所以要去 加载模块，跟初始化时加载模块是一样的。而当加载完模块后，则会保存对应的module对象。
+关于`installedModules`变量，用于存储加载好的模块对象，当对应索引的内容为0时，没有含义，因为逻辑在判断if时发现没有模块，所以要去 加载模块，跟初始化时加载模块是一样的。而当加载完模块后，则会保存对应的module对象。
 
 关于`installedChunks`变量，用于标记chunk的加载状态，主要用于异步加载，当对应索引的内容为0时，表示该chunk已经加载过了，如果正在加载，则为数组（回调函数数组）。当chunk在 `wpJsonp`执行时加载已经完成，其逻辑也会去判断回调，统一执行回调，并将对应标识置零。
 
