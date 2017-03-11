@@ -67,7 +67,9 @@ layout 模板 原版太长，做一下简化
 需要通过node端js做模板注册：`Handlebars.registerPartial`
 
 ~~~
+{%raw%}
 Handlebars.registerPartial('myPartial', '{{name}}')
+{%endraw%}
 ~~~
 
 其中第一个参数为模板名称，第二个参数则是预编译的模板字符串
