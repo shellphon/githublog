@@ -21,7 +21,6 @@ category: Hellocode
 &emsp;&emsp;一般人在github建的博客，是用的第一种，而我反而用第二种方式，噗。   
 用gh-pages分支搭建博客的时候，平时提交点内容或者更新时，用的是这样的命令：
     
-~~~
-   git pull origin gh-pages
-   git push origin gh-pages
-~~~
+> git pull origin gh-pages  
+git push origin gh-pages
+

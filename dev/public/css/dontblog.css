@@ -70,9 +70,10 @@ strong {
 ul, ol, dl {
   margin-top: 0;
   margin-bottom: 1rem;
+  padding-left: 1em;
 }
 li{
-  list-style-position: inside;
+  
 }
 
 dt {
@@ -139,12 +140,17 @@ blockquote p {
 }
 pre{
   /*background-color: rgba(0, 0, 0, 1);*/
-  
+  background-color: #f6f6f6;
+  padding: 0 .5em;
   overflow-x: auto;
  /*  padding: 5px; */
 /*  color: #46EB12;*/
   color:#6ab825;
   /* font-family: "PT Sans", Helvetica, Arial, sans-serif; */
+}
+figure pre{
+  background:none;
+  padding: 0;
 }
 .lineno{
   color: red;
@@ -154,7 +160,7 @@ pre span{
 }
 
 pre>code{
-  color: #46EB12;
+  /*color: #46EB12;*/
 }
 div.highlighter-rouge,.highlight{
   background-color:#505050;

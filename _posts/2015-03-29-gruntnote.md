@@ -93,6 +93,7 @@ files:[{
 + #### 关于配置dest src 和files
 
 通常：
+
 > files:{ destUrl : srcUrl }
 
 或者
