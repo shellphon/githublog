@@ -30,8 +30,8 @@ description: vue实现旋转木马轮播
 vue的理念是数据驱动，所以要把jquery插件那套实现做一下转化。同样，也是接受几个静态数据：整体宽高、中间项宽高、缩小比例。
 
 {%highlight html%}
-<cascade-loop :list="list" :cur-width="400" :all-width="800" :all-height="300"
-    :cur-height="280" :scale="0.8"
+<cascade-loop :list="list" cur-width="400" all-width="800" all-height="300"
+    cur-height="280" scale="0.8"
     ></cascade-loop>
 {%endhighlight%}
 
