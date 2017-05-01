@@ -33,7 +33,7 @@ var s = [1,2,3,2,3,4,5,6,4,5,8];
 function unique(list){
   for(var i = list.length-1;i>=0;i--){
     if(list.indexOf(list[i])!=i){
-      list.splice(i++,1);
+      list.splice(i,1);
     }
   }
 }
