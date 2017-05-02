@@ -736,8 +736,9 @@ a.sidebar-nav-item:focus {
 .fly__url{
   width: 100%;
 }
-.fly__url .fly__url__link{
-  display: none;
+.showAll .fly__url__link{
+  /* display: none; */
+  animation:wobble 1s 0s 1 normal both;
 }
 .fly__url a{
   display: inline-block;
@@ -771,7 +772,7 @@ a.sidebar-nav-item:focus {
   }
   .fly.showAll{
     width: 11.11rem;
-    height: auto;
+    height: 86px;
   }
 }
 
@@ -811,4 +812,34 @@ a.sidebar-nav-item:focus {
 }
 .cate-posts .post-url{
   display: inline-block;
+}
+
+@keyframes wobble {
+  from {
+    transform: none;
+  }
+
+  15% {
+    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+
+  30% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+  }
+
+  45% {
+    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+
+  75% {
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+  }
+
+  to {
+    transform: none;
+  }
 }

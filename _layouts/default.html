@@ -38,12 +38,12 @@
       if(!/showAll/.test(cls)){
       		flyDom.className = cls+' showAll';
       }
-      if(handle){
+     /* if(handle){
         clearTimeout(handle);
       }
       handle = setTimeout(function(){
           flyLinks.style.display='block';
-        },500);
+        },500);*/
     });
     flyDom.addEventListener('mouseleave',function(){
       var cls = flyDom.className;
@@ -55,10 +55,10 @@
       			return true;
       		}).join(' ');
       }
-      if(handle){
+      /*if(handle){
         clearTimeout(handle);
       }
-      flyLinks.style.display = 'none';
+      flyLinks.style.display = 'none';*/
     });
 
   
