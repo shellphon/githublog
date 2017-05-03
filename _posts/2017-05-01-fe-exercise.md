@@ -182,3 +182,43 @@ function copyObj(obj){
 </html>
 {%endhighlight%}
 
+#### update 拖拽其实还有一个体验要求，那就是当鼠标快速拖拽时，往往会出现鼠标移出目标空间而无法触发实时改变目标定位，改善的方法是在document上监听mousemove事件。
+
+<iframe width="100%" height="400" src="//jsfiddle.net/dont27/3xwdsgy0/2/embedded/result,js,html,css/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+{%highlight javascript%}
+      function getStyle(elem){
+        return getComputedStyle(elem);
+      }
+      function parsePx(str){
+        if(/px/.test(str)){
+          str = str.replace(/px/,'');
+        }
+        return parseFloat(str);
+      }
+      var drag = document.querySelector('.drag');
+      var top,
+        left,
+        currentX,
+        currentY,
+        moving = false;
+      drag.onmousedown = function(event){
+        var css = getStyle(drag);
+        top = parsePx(css.top);
+        left = parsePx(css.left);
+        //console.log('down',top,left);
+        currentX = event.clientX;
+        currentY = event.clientY;
+        moving = true
+      };
+      document.onmouseup = function(event){
+        //console.log('up');
+        moving = false;
+        currentX = currentY = top = left =0;
+      };
+      document.onmousemove = function(event){
+        if(!moving)return;
+        drag.style.top = top + (event.clientY - currentY) + 'px';
+        drag.style.left = left + (event.clientX - currentX) + 'px';
+      };
+{%endhighlight%}
