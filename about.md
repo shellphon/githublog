@@ -36,7 +36,7 @@ title: 关于我
 <ul>
 	 {% for link in site.data.my.friendlinks%}
         <li>
-             <a href="{{ link.url }}" target="_blank">{{ link.name }}</a>
+             <a href="{{ link.url }}" target="_blank">{{ link.name }}</a> &emsp;{{ link.desc }}
         </li>
       {% endfor %}
 </ul>
