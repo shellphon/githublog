@@ -16,7 +16,8 @@ var data = {name:'dont', study:'前端'};
 var tmpl = ['{name} 说：',
             '他想学{study}'    
         ].join('');
-console.log(tmpl.replace(/{name}/g, data.name).replace(/{study}/g, data.study));
+console.log(tmpl.replace(/{name}/g, data.name)
+                .replace(/{study}/g, data.study));
 {%endhighlight%}
 
 这种写起来好像没啥问题，但写多了挺烦的，dom结构一长，要渲染的数据一多，就要想方法做函数封装以及代码优化。
@@ -146,8 +147,9 @@ var tplEngine = function(tpl, data) {
         cursor = 0;
 
     var add = function(line, js) {
-        js? (code += line.match(regOut) ? line + '\n' : 'r.push(' + line + ');\n') :
-            (code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
+        js? 
+        (code += line.match(regOut) ? line + '\n' : 'r.push(' + line + ');\n')
+         :(code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
         return add;
     }
     while(match = reg.exec(tpl)) {
@@ -187,8 +189,9 @@ var tplEngine = function(tpl, data) {
     
     //三元运算符感觉可读性不大好
     var add = function(line, js) {
-        js? (code += line.match(regOut) ? line + '\n' : 'r.push(' + line + ');\n') :
-            (code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
+        js? 
+        (code += line.match(regOut) ? line + '\n' : 'r.push(' + line + ');\n') 
+        :(code += line != '' ? 'r.push("' + line.replace(/"/g, '\\"') + '");\n' : '');
         return add;
     }
     while(match = reg.exec(tpl)) {
