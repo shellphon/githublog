@@ -120,6 +120,10 @@ title: 所有文章
     });
   }
 
+  function isFocus(dom){
+    return dom == document.querySelector('input:focus');
+  }
+
   var input = document.getElementsByClassName('search-input')[0];
   var searchBtn = document.getElementsByClassName('search-btn')[0];
   
@@ -132,7 +136,7 @@ title: 所有文章
       }
   };
   document.addEventListener('keyup',function(event){
-    if(event.keyCode == 13){
+    if(event.keyCode == 13 && isFocus(input)){
       searchBtn.click();
     }
   });
