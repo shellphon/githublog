@@ -439,17 +439,23 @@ a.sidebar-nav-item:focus {
 
 
 /*三勾玉写轮眼*/
-/*
 .sharingan{
+  box-sizing:border-box;
   background-color:#b22222;
-  width:100px;
-  height:100px;
+  width:6.25em;
+  height:6.25em;
   border-radius:50%;
-  border:2px solid #000;
+  border:.125em solid #000;
   position:relative;
-  margin: 0 auto;
-  box-shadow: 0 0 0 4px rgba(0,0,0,.1) inset,0 0 0 12px rgba(0,0,0,.1) inset;
+  box-shadow: 0 0 0 .25em rgba(0,0,0,.1) inset,0 0 0 .25em rgba(0,0,0,.1) inset;
   transition: transform linear 1s;
+}
+.sharingan-layout{
+  margin: 0 auto;
+  font-size:1.776rem;
+}
+.sharingan *{
+box-sizing:border-box;
 }
 .sharingan:hover{
   transform:rotate(360deg);
@@ -460,10 +466,11 @@ a.sidebar-nav-item:focus {
   width:60%;
   height:60%;
   border-radius:50%;
-  border:1px solid #333;
+  border:.0625em solid #333;
   position:absolute;
-  top:calc(20% - 1px);
-  left:calc(20% - 1px);
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
 }
 .sharingan::after{
   content:" ";
@@ -473,8 +480,9 @@ a.sidebar-nav-item:focus {
   border-radius:50%;
   background-color:#000;
   position:absolute;
-  top:40%;
-  left:40%;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
 }
 .gogok{
   width:15%;
@@ -489,25 +497,26 @@ a.sidebar-nav-item:focus {
     width: 75%;
     height: 75%;
     border-style: solid;
-    border-width: 0 0 8px 0;
+    border-width: 0 0 .5em 0;
     border-color: transparent transparent #000 transparent;
     border-radius: 0 0 0 70%;
     position: absolute;
-    bottom: -4px;
-    left: -4px;
+    bottom: -.25em;
+    left: -.25em;
     transform: rotate(-60deg);
 }
 .gogok1{
-  bottom:12%;
-  left:42%;
+  transform:translate(-50%, 50%);
+  bottom:20%;
+  left:50%;
 }
 .gogok2{
   top:25%;
   left:20%;
 }
 .gogok2:before{
-    bottom: 3px;
-    left: 4px;
+    bottom: .1875em;
+    left: .25em;
     transform: rotate(80deg);
 }
 .gogok3{
@@ -515,99 +524,15 @@ a.sidebar-nav-item:focus {
   right:20%;
 }
 .gogok3:before{
-    bottom: -8px;
-    left: 1px;
+    bottom: -.5em;
+    left: .0625em;
     transform: rotate(240deg);
 }
-*/
-.sharingan{
-  margin: 0 auto;
 
-  box-sizing: content-box;
-  background-color:#b22222;
-  width:6.25rem;
-  height:6.25rem;
-  border-radius:50%;
-  border:.125rem solid #000;
-  position:relative;
-  box-shadow: 0 0 0 .25rem rgba(0,0,0,.1) inset,0 0 0 .25rem rgba(0,0,0,.1) inset;
-  transition: transform linear 1s;
-}
-.sharingan:hover{
-  transform:rotate(360deg);
-}
-.sharingan::before{
-  content:" ";
-  display:block;
-  width:60%;
-  height:60%;
-  border-radius:50%;
-  border:.0625rem solid #333;
-  position:absolute;
-  top:calc(20% - .0625rem);
-  left:calc(20% - .0625rem);
-}
-.sharingan::after{
-  content:" ";
-  display:block;
-  width:20%;
-  height:20%;
-  border-radius:50%;
-  background-color:#000;
-  position:absolute;
-  top:40%;
-  left:40%;
-}
-.gogok{
-  width:15%;
-  height:15%;
-  border-radius:50%;
-  background-color:#000;
-  position:absolute;
-}
-.gogok::before{
-    content: " ";
-    display: block;
-    width: 75%;
-    height: 75%;
-    border-style: solid;
-    border-width: 0 0 .5rem 0;
-    border-color: transparent transparent #000 transparent;
-    border-radius: 0 0 0 70%;
-    position: absolute;
-    bottom: -.25rem;
-    left: -.25rem;
-    transform: rotate(-60deg);
-}
-.gogok1{
-  bottom:12%;
-  left:42%;
-}
-.gogok2{
-  top:25%;
-  left:20%;
-}
-.gogok2:before{
-    bottom: .1875rem;
-    left: .25rem;
-    transform: rotate(80deg);
-}
-.gogok3{
-  top:25%;
-  right:20%;
-}
-.gogok3:before{
-    bottom: -.5rem;
-    left: .0625rem;
-    transform: rotate(240deg);
-}
 @media (min-width: 48em) {
   .portrait-wrap{
     width: auto;
     text-align: left;
-  }
-  .sharingan{
-    margin: 0;
   }
   .sidebar-sticky {
     position: absolute;
