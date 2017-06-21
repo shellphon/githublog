@@ -479,20 +479,6 @@ description: 无刷新异步上传文件的实现浅析
                 div.style.visibility = 'visible';
                                 
             });
-            
-            
-            // commented because we now hide input on mouseleave
-            /**
-             * When the window is resized the elements 
-             * can be misaligned if button position depends
-             * on window size
-             */
-            //addResizeEvent(function(){
-            //    if (self._input){
-            //        copyLayout(self._button, self._input.parentNode);
-            //    }
-            //});            
-                                         
         },
         /**
          * 创建iframe
