@@ -1,26 +1,26 @@
 ---
 layout: post
-title: chrome插件分析-Holmes
+title: chrome扩展程序分析-Holmes
 category: Hellocode
 keywords: chrome,extension
-description: 对Chrome插件-Holmes源码解读
+description: 对Chrome扩展程序-Holmes源码解读
 ---
 
-前阵子在微博看到关于chrome书签搜索的插件[Holmes](https://chrome.google.com/webstore/detail/holmes/gokficnebmomagijbakglkcmhdbchbhn)，于是使用了一下，确实还不错，尤其书签多很多的情况下，有个搜索功能 ，比定时做书签分类等等方便得多很多。看着插件功能简单，感觉实现应该不难，于是我就试着查看一下插件源码，也可以顺便进一步了解chrome插件的实现方法和操作api。
+前阵子在微博看到关于chrome书签搜索的扩展程序[Holmes](https://chrome.google.com/webstore/detail/holmes/gokficnebmomagijbakglkcmhdbchbhn)，于是使用了一下，确实还不错，尤其书签多很多的情况下，有个搜索功能 ，比定时做书签分类等等方便得多很多。看着扩展程序功能简单，感觉实现应该不难，于是我就试着查看一下扩展程序源码，也可以顺便进一步了解chrome扩展程序的实现方法和操作api。
 
 本篇文章意在讲解Holmes的主要实现，对于chrome扩展程序怎么一步一步建立起来，就不做重复说明，网上搜索即可。
 
-首先，既然要研究插件源码，那么最直接的方式当然就是从chrome安装目录来寻址该插件的所在目录了。
+首先，既然要研究扩展程序源码，那么最直接的方式当然就是从chrome安装目录来寻址该扩展程序的所在目录了。
 
 这点，其实网上有资料可以查看的，比如[这里>>](https://zhidao.baidu.com/question/229070019.html)
 
 步骤1，在chrome地址栏输入:`chrome://version` 回车，将结果页中“个人资料路径”一栏对应的值复制（其实是一个目录路径）
 
-步骤2，打开资源管理器，键入刚复制的路径，进入目录，打开`Extsions`目录，里面都是各种以字母组合的命名文件夹，对应的其实是各个插件，命名其实是插件的id
+步骤2，打开资源管理器，键入刚复制的路径，进入目录，打开`Extsions`目录，里面都是各种以字母组合的命名文件夹，对应的其实是各个扩展程序，命名其实是扩展程序的id
 
-步骤3，在地址栏输入:`chrome://extensions`，进入扩展程序管理页，找到对应的插件选项，有`ID`，对应的ID值就是对应的插件文件夹名字。这似乎是个唯一值，holmes的ID是：`gokficnebmomagijbakglkcmhdbchbhn`
+步骤3，在地址栏输入:`chrome://extensions`，进入扩展程序管理页，找到对应的扩展程序选项，有`ID`，对应的ID值就是对应的扩展程序文件夹名字。这似乎是个唯一值，holmes的ID是：`gokficnebmomagijbakglkcmhdbchbhn`
 
-遵循上面三个步骤，我们就可以找到Holmes的插件目录了 ，将其复制到方便查看的位置，就可以开始查看源码了。
+遵循上面三个步骤，我们就可以找到Holmes的扩展程序目录了 ，将其复制到方便查看的位置，就可以开始查看源码了。
 
 ### 理解配置
 
@@ -65,7 +65,7 @@ description: 对Chrome插件-Holmes源码解读
 
 可以看到，这里有个permissions字段，字面意义应该是跟权限相关，这里配置了bookmarks、tabs、和`chrome://favicon/`,这为后面要用到chrome的一些功能埋下了伏笔（这么说好么？= =）
 
-另外`browse_action`字段定义了点击扩展程序图标的一些行为，`default_popup`规定了点击弹出框定位到`holmes.html`,也就是插件的业务页面，即搜索框和搜索结果。
+另外`browse_action`字段定义了点击扩展程序图标的一些行为，`default_popup`规定了点击弹出框定位到`holmes.html`,也就是扩展程序的业务页面，即搜索框和搜索结果。
 
 ### 深入页面
 
@@ -258,7 +258,7 @@ $('#pattern').on('keyup', function(e) {
   });
 {%endhighlight%}
 
-关于`updateView`: 已经设定了`bmarks_per_page`变量用来定义结果显示数量(并非把全部书签结果都输出，而是输出前十条数据)，并且对标题进行省略裁剪，并针对关键字插入`span`标签（可做样式高亮，但插件并没有做），在拼接dom模板时对首条数据加入current类，并且将对应的dom保存到`$current_mark`,用于回车时直接打开以及显示选中项，对拼接的dom添加到`$view`中，并且定义a标签点击事件（由于每次搜索结果都是重新添加内容，所以这里不会涉及重复绑定，但其实可以给`$view`做事件代理更佳）
+关于`updateView`: 已经设定了`bmarks_per_page`变量用来定义结果显示数量(并非把全部书签结果都输出，而是输出前十条数据)，并且对标题进行省略裁剪，并针对关键字插入`span`标签（可做样式高亮，但扩展程序并没有做），在拼接dom模板时对首条数据加入current类，并且将对应的dom保存到`$current_mark`,用于回车时直接打开以及显示选中项，对拼接的dom添加到`$view`中，并且定义a标签点击事件（由于每次搜索结果都是重新添加内容，所以这里不会涉及重复绑定，但其实可以给`$view`做事件代理更佳）
 
 代码如下：
 
@@ -356,4 +356,4 @@ ps：这里有个小知识点，其实也涉及到`permissions`配置，在chrom
 {%endhighlight%}
 
 
-至此，holmes的主要逻辑也就解读完毕了， 对于样式那块，本文不做解读，可看出，其实该插件，还有很多优化空间，感兴趣，其实可以自己改改，来优化使用体验，比如：代码的一些重复逻辑、加入事件代理、搜索结果显示体验等等。（目前，用的插件在说明上貌似最新一版已经是2015年的事了，看来作者也没有继续更新的打算了）
+至此，holmes的主要逻辑也就解读完毕了， 对于样式那块，本文不做解读，可看出，其实该扩展程序，还有很多优化空间，感兴趣，其实可以自己改改，来优化使用体验，比如：代码的一些重复逻辑、加入事件代理、搜索结果显示体验等等。（目前，该扩展程序在说明上貌似最新一版已经是2015年的事了，看来作者也没有继续更新的打算了）
