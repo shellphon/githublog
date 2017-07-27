@@ -6,11 +6,12 @@ keywords: infinite-scroll, dom-collection, waterfall
 description: 滚动加载的实现和优化知识点，绝对定位瀑布流实现
 ---
 
+
+平时工作并没有接触到瀑布流，但说起滚动加载，触屏版列表页总会遇到，只是很多时候数据量太少，无暇考虑其存在的优化点，如果被问起，可能回答最多的是图片懒加载吧，但其实不然，也是之前的一次面试，被问及滚动加载的优化，当时面试官很详细的说明需求，那就是页面在不断下拉滚动加载过程中，dom的不断增加会加大内存消耗， 如果是手机的话，会有卡顿的现象出现，这个时候应该怎么处理？
+
 <style>
   svg{width:400px;height:400px;margin:0 auto}svg.infscroll{vector-effect:non-scaling-stroke}svg *{vector-effect:inherit}#browser .viewport{stroke:red;stroke-width:4;fill:none}#browser .viewport text{stroke:none;fill:red}.whitener{stroke:none;fill:rgba(255,255,255,0.54)}#runway{stroke:url(#linear);stroke-width:2;fill:none}#runway+text{fill:blue;stroke:none}.pages>use{stroke:none;fill:none}.pages>use:nth-child(1){animation:page1 10s infinite}.pages>use:nth-child(2){animation:page2 10s infinite}.pages>use:nth-child(3){animation:page3 10s infinite}.pages>use:nth-child(4){animation:page4 10s infinite}.pages>use:nth-child(5){animation:pagew1 10s infinite}.pages>use:nth-child(6){animation:pagew2 10s infinite}.pages>use:nth-child(7){animation:pagew3 10s infinite}.pages>use:nth-child(8){animation:pagew4 10s infinite}.pages{animation:items 10s infinite}@keyframes items{0%{transform:translateY(0px)}16%,20%{transform:translateY(-80px)}32%,36%{transform:translateY(-480px)}48%,52%{transform:translateY(-800px)}64%,68%{transform:translateY(-880px)}80%,84%{transform:translateY(-802px)}96%,100%{transform:translateY(-480px)}}@keyframes page1{0%{stroke:#000;fill:yellow}16%,20%{stroke:#000;fill:yellow}32%,36%{stroke:#000;fill:yellow}48%,52%{stroke:#000;fill:none}64%,68%{stroke:#000;fill:none}80%,84%{stroke:#000;fill:yellow}96%,100%{stroke:#000;fill:yellow}}@keyframes page2{0%{stroke:none;fill:none}16%,20%{stroke:#000;fill:yellow}32%,36%{stroke:#000;fill:yellow}48%,52%{stroke:#000;fill:yellow}64%,68%{stroke:#000;fill:yellow}80%,84%{stroke:#000;fill:yellow}96%,100%{stroke:#000;fill:yellow}}@keyframes page3{0%{stroke:none;fill:none}16%,20%{stroke:none;fill:none}32%,36%{stroke:#000;fill:yellow}48%,52%{stroke:#000;fill:yellow}64%,68%{stroke:#000;fill:yellow}80%,84%{stroke:#000;fill:yellow}96%,100%{stroke:#000;fill:yellow}}@keyframes page4{0%{stroke:none;fill:none}16%,20%{stroke:none;fill:none}32%,36%{stroke:none;fill:none}48%,52%{stroke:none;fill:none}64%,68%{stroke:#000;fill:yellow}80%,84%{stroke:#000;fill:yellow}96%,100%{stroke:#000;fill:none}}
 </style>
-
-平时工作并没有接触到瀑布流，但说起滚动加载，触屏版列表页总会遇到，只是很多时候数据量太少，无暇考虑其存在的优化点，如果被问起，可能回答最多的是图片懒加载吧，但其实不然，也是之前的一次面试，被问及滚动加载的优化，当时面试官很详细的说明需求，那就是页面在不断下拉滚动加载过程中，dom的不断增加会加大内存消耗， 如果是手机的话，会有卡顿的现象出现，这个时候应该怎么处理？
 
 当时我并没有想到dom回收这块去，最后一句“不会要把前面dom给删了先吧？”，面试官回道“就是这样”……最终面试结束就没有消息了，当时我就开始研究瀑布流跟这个dom回收的优化点，但总是碎片化时间来思考，遇到问题后停了很长一段时间，最近又去研究类似实现网站的做法，于是找到突破点，较为完整地写完了代码。
 
