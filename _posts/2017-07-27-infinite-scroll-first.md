@@ -11,6 +11,7 @@ description: 滚动加载的实现和优化知识点，绝对定位瀑布流实�
 
 <style>
   svg{width:400px;height:400px;margin:0 auto}svg.infscroll{vector-effect:non-scaling-stroke}svg *{vector-effect:inherit}#browser .viewport{stroke:red;stroke-width:4;fill:none}#browser .viewport text{stroke:none;fill:red}.whitener{stroke:none;fill:rgba(255,255,255,0.54)}#runway{stroke:url(#linear);stroke-width:2;fill:none}#runway+text{fill:blue;stroke:none}.pages>use{stroke:none;fill:none}.pages>use:nth-child(1){animation:page1 10s infinite}.pages>use:nth-child(2){animation:page2 10s infinite}.pages>use:nth-child(3){animation:page3 10s infinite}.pages>use:nth-child(4){animation:page4 10s infinite}.pages>use:nth-child(5){animation:pagew1 10s infinite}.pages>use:nth-child(6){animation:pagew2 10s infinite}.pages>use:nth-child(7){animation:pagew3 10s infinite}.pages>use:nth-child(8){animation:pagew4 10s infinite}.pages{animation:items 10s infinite}@keyframes items{0%{transform:translateY(0px)}16%,20%{transform:translateY(-80px)}32%,36%{transform:translateY(-480px)}48%,52%{transform:translateY(-800px)}64%,68%{transform:translateY(-880px)}80%,84%{transform:translateY(-802px)}96%,100%{transform:translateY(-480px)}}@keyframes page1{0%{stroke:#000;fill:yellow}16%,20%{stroke:#000;fill:yellow}32%,36%{stroke:#000;fill:yellow}48%,52%{stroke:#000;fill:none}64%,68%{stroke:#000;fill:none}80%,84%{stroke:#000;fill:yellow}96%,100%{stroke:#000;fill:yellow}}@keyframes page2{0%{stroke:none;fill:none}16%,20%{stroke:#000;fill:yellow}32%,36%{stroke:#000;fill:yellow}48%,52%{stroke:#000;fill:yellow}64%,68%{stroke:#000;fill:yellow}80%,84%{stroke:#000;fill:yellow}96%,100%{stroke:#000;fill:yellow}}@keyframes page3{0%{stroke:none;fill:none}16%,20%{stroke:none;fill:none}32%,36%{stroke:#000;fill:yellow}48%,52%{stroke:#000;fill:yellow}64%,68%{stroke:#000;fill:yellow}80%,84%{stroke:#000;fill:yellow}96%,100%{stroke:#000;fill:yellow}}@keyframes page4{0%{stroke:none;fill:none}16%,20%{stroke:none;fill:none}32%,36%{stroke:none;fill:none}48%,52%{stroke:none;fill:none}64%,68%{stroke:#000;fill:yellow}80%,84%{stroke:#000;fill:yellow}96%,100%{stroke:#000;fill:none}}
+  .item1{animation:move1 9s infinite}.item2{animation:move2 9s infinite}.item3{animation:move3 9s infinite}.item4{animation:move4 9s infinite}.item5{animation:move5 9s infinite}.item6{animation:move6 9s infinite}.line{animation:line 9s infinite}@keyframes move1{0%{transform:translate(0px,0px)}10%,100%{transform:translate(200px,0px)}}@keyframes move2{0%,10%{transform:translate(0px,0px)}20%,100%{transform:translate(320px,-110px)}}@keyframes move3{0%,20%{transform:translate(0px,0px)}40%,100%{transform:translate(440px,-280px)}}@keyframes move4{0%,40%{transform:translate(0px,0px)}60%,100%{transform:translate(440px,-290px)}}@keyframes move5{0%,60%{transform:translate(0px,0px)}80%,100%{transform:translate(200px,-410px)}}@keyframes move6{0%,80%{transform:translate(0px,0px)}90%,100%{transform:translate(320px,-580px)}}@keyframes line{0%,40%{transform:translateY(0px)}50%,60%{transform:translateY(50px)}65%,80%{transform:translateY(100px)}85%,90%{transform:translateY(150px)}98%,100%{transform:translateY(210px)}}
 </style>
 
 当时我并没有想到dom回收这块去，最后一句“不会要把前面dom给删了先吧？”，面试官回道“就是这样”……最终面试结束就没有消息了，当时我就开始研究瀑布流跟这个dom回收的优化点，但总是碎片化时间来思考，遇到问题后停了很长一段时间，最近又去研究类似实现网站的做法，于是找到突破点，较为完整地写完了代码。
@@ -24,6 +25,22 @@ description: 滚动加载的实现和优化知识点，绝对定位瀑布流实�
 我这里总结一下自己实现的知识点：
 
 1.绝对定位布局瀑布流，每个数据项的位置都固定，这里先设定好每一排的列数，先布局第一排数据，然后记录下每一项的高度，并将高度值存到一个数组中，后续的数据项每次摆放，其实都是 通过取得数组元素最小值来决定数据项的位置，这样就能保证后续数据都是优先插入到剩余空间（无视其标签在代码里的物理位置）。绝对定位还有一个好处是后面如果dom回收的话，前面dom清除也不会影响后面dom的布局。
+
+示意图如下：[额外链接>>](http://runjs.cn/detail/urakrqoq) (需要支持svg和动画的浏览器)
+
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 800 1200" >
+  <rect x="0" y="0" width="800" height="1200" fill="#fff" ></rect>
+  <rect x="200" y="10" width="400" height="1000" stroke='red' stroke-width='4' fill="#fff" ></rect>
+  
+  <rect class="item1" x="10" y="10" width="100" height="100" stroke='#eee' stroke-width='2' fill="#999" ></rect>
+  <rect class="item2" x="10" y="120" width="100" height="150" stroke='#eee' stroke-width='2' fill="#999" ></rect>
+  <rect class="item3" x="10" y="290" width="100" height="50" stroke='#eee' stroke-width='2' fill="#999" ></rect>
+  
+  <rect class="item4" x="10" y="360" width="100" height="150" stroke='#eee' stroke-width='2' fill="#999" ></rect>
+  <rect class="item5" x="10" y="530" width="100" height="200" stroke='#eee' stroke-width='2' fill="#999" ></rect>
+  <rect class="item6" x="10" y="750" width="100" height="130" stroke='#eee' stroke-width='2' fill="#999" ></rect>
+  <line class="line" x1='120' y1='10' x2='680' y2='10' stroke='blue' stroke-width="4" stroke-dasharray="20 10"></line>
+</svg>
 
 2.数据项带有图片势必需要异步操作，因为是滚动加载，可以不考虑懒加载了，既然是异步，会影响第一点说得获取数据项高度的进度，于是转换一下思路，当我们拿到数据的那一刻，先把图片地址筛选出来，并行js代码加载图片（不显示），直到最后一张图片加载完成时回调来进行dom插入以及布局位置操作。
 
