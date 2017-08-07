@@ -37,13 +37,29 @@ layout: default
  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
  <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a> -->
 
+<!-- UY 
 <script type="text/javascript">
 var uyan_config = {
      'url':'{{ site.homelink }}{{ site.baseurl }}{{ page.url }}'
 };
 </script>
-<!-- UY BEGIN -->
 <div id="uyan_frame"></div>
 <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2138411"></script>
-<!-- UY END -->
+-->
+<div id="gitalk_wrapper"></div>
+<link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  
+<script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+
+<script>
+  var gitalk = new Gitalk({
+    clientID: 'b3cd5342a76b0b47c627',
+    clientSecret: '1e9022c42de42a2381847127a2b01c638c6b2d6d',
+    repo: 'https://github.com/shellphon/my-blog-comments',
+    owner: 'shellphon',
+    admin: ['shellphon'],
+  });
+
+  gitalk.render('gitalk_wrapper');
+</script>
 
