@@ -46,8 +46,4 @@ friendlinks:
     desc: 前端技术榜样
     url: http://www.barretlee.com/
   
-  - name: jjc大大
-    desc: sf 技友，启蒙
-    url: http://justjavac.com/
-  
 category: { Hellocode: 码不停蹄, Test: 无聊测试, Journal: 青云流水, Tool: 刀耕火种  }
