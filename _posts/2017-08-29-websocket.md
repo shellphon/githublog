@@ -311,4 +311,6 @@ io.sockets.on('connection', function (socket) {
 
 [Web 消息推送及 WebSocket 简介](https://zqianduan.com/2016/03/17/websocket-introduction/)
 
+[WebSocket 是什么原理？为什么可以实现持久连接？(知乎)](https://www.zhihu.com/question/20215561)
+
 [Web 通信 之 长连接、长轮询（long polling）](http://www.cnblogs.com/hoojo/p/longPolling_comet_jquery_iframe_ajax.html)
