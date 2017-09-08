@@ -663,16 +663,13 @@ a.sidebar-nav-item:hover, a.sidebar-nav-item:focus {
 .cate-div {
   overflow: hidden;
   margin: 1em 0 0;
+  font-size: 1.2em;
 }
 .cate-title {
-  float: left;
-  font-size: 1.2em;
   font-weight: bold;
   color: rgb(13, 102, 105);
 }
 .cate-num {
-  float: right;
-  font-size: 1.5em;
   color: #D33428;
 }
 #blog-posts .post-date {
