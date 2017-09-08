@@ -2,12 +2,13 @@
 layout: page
 title: 所有文章
 ---
+
+<div class="search">
+  <span class="show-all">全部</span>
+  <input type="text" class="search-input" placeholder="搜一下更快~">
+  <button class="search-btn"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></button>
+</div>
 <div id="blog-posts">
-  <div class="search">
-    <span class="show-all">全部</span>
-    <input type="text" class="search-input" placeholder="搜一下更快~">
-    <button class="search-btn"><svg focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></button>
-  </div>
   <hr />
    <div class="result-tab search-result">
       <div class="no-result"><p>木有结果~</p></div>
@@ -36,7 +37,7 @@ title: 所有文章
       <ul class="cate-posts{% if category.last.size > 5 %} more{%endif%}" id="posts_{{ category|first }}">
       {% for post in category.last %}
         <li>
-            <span class="post-date">{{ post.date | date: "%b %d, %Y" }}</span>
+            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
             <div class="post-url">
               <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
             </div>

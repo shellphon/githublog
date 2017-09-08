@@ -12,7 +12,7 @@ title: Home
       </a>
     </h2>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+    <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
 
     <p class="excerpt">{{ post.excerpt | remove: '<p>' | remove: '</p>' | strip_html | strip_newlines }}……&emsp;&emsp;<a class="more" href="{{site.baseurl}}{{ post.url }}">more</a></p>
   </div>
