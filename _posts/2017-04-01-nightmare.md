@@ -86,11 +86,13 @@ nightmare
 虽说如此，但是！！！这种方法不能传一些特殊对象，比如原型链上的内容，是不会带上的，而且即使说node环境有Date对象，浏览器也有Date对象，也不能直接传入一个Date的实例，传入之后，也用不了Date的内置方法。
 
 
-`then`的重要性：最上面的示例代码里注释也有提到，需要加入then才能保证队列的执行。
+`then`的重要性：最上面的示例代码里注释也有提到，需要加入then才能保证队列的执行.
 
 引用[这里的一句话](https://github.com/fyuanfen/nightmare)
 
 > 这是因为每一个 nightmare 实例都有一个操作队列，而这个操作队列保存着 nightmare 的一系列操作。而 nightmare 的每一个链式调用只是将操作保存到队列里面，并没有立刻执行操作。
+
+关于这个队列操作，可以读一下nightmare源码，nightmare的实例对象中都有一个`_queue`的数组，用来保存每一个基本api动作，等到调用`then`时，才去触发`run`函数，从而去处理`_queue`里的一个个动作。
 
 ### 实践例子
 
@@ -327,12 +329,34 @@ login();
 
 期间，要留意的问题是分析页面dom要到位，确保wait选择器的时候，这选择器是必然存在的，不然，结局就会是脚本一直在等待，直到最后跳出，中断了后续运行。
 
-综上，上述只适用于简单用户名和密码登录的网站，如果是需要验证码的那种，可能就没那么好做了，但可以考虑打开`electron`窗口，做半自动化模式。可以[参考这里](http://blog.yege.me/2016/web/nightmare-with-command-line-prompt)
+综上，上述只适用于简单用户名和密码登录的网站，如果是需要验证码的那种，可能就没那么好做了，但可以考虑打开`electron`窗口，做半自动化模式。可以[参考这里](http://gewenmao.github.io/2016/web/nightmare-with-command-line-prompt)
 
-在写上一篇博客的时候，这篇顺手也写了，感觉先当做4月份的吧~（偷懒~）
+--update:
+
+最近简要的翻了一下nightmare的源码跟api文档，发现`evaluate`还有另外一种用法：
+
+{%highlight javascript%}
+nm.evaluate(fn,arg)
+.then(function(data){});
+{%endhighlight%}
+
+前面提到的`evaluate`，这里then里的function获取到的data，其实就是fn的返回内容。但如果fn的参数设定大于arg（即evaluate总参数个数-1）时，fn的最后一个多余的参数为done，其实是nightmare给添加进去的，这个时候`evalute`的结束返回机制就变了，此时直接`return`不会执行后续的`end()`来关闭窗口，而是一直等待evaluate的timeout，归根于此时的fn内部需要显示调用`done(err,data)`来结束`evaluate`.
+
+举了简单代码例子：
+
+{%highlight javascript%}
+nm.evaluate(function(word, done){
+        setTimeout(done(null, 'hello'),500);
+        //return word + $('.click-word').text();
+      }, '嘿嘿')
+      .end()
+      .then(function(data){});
+{%endhighlight%}
+
+这里then的function最终获取到的是`hello`, 这种写法可用于在浏览器端做异步调用结束运行。
 
 ### 参考
 
-[使用 nightmare 进行页面测试介绍](http://blog.yege.me/2016/web/how-to-use-nightmare-for-web-page-test)  
+[使用 nightmare 进行页面测试介绍](http://gewenmao.github.io/2016/web/how-to-use-nightmare-for-web-page-test)  
 [nightmare官网](https://github.com/segmentio/nightmare)  
-[http://blog.yege.me/2016/web/nightmare-with-command-line-prompt](http://blog.yege.me/2016/web/nightmare-with-command-line-prompt)
+[http://gewenmao.github.io/2016/web/nightmare-with-command-line-prompt](http://gewenmao.github.io/2016/web/nightmare-with-command-line-prompt)
