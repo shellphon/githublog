@@ -666,7 +666,6 @@ description: 无刷新异步上传文件的实现浅析
         }
     };
 })(); 
- 
 {%endhighlight%}
 
 代码说短不短，说长也不长，因为作为插件，业务需要被修改过，未能找到比较完整的源码，不过核心逻辑还是比较清晰的。
@@ -677,6 +676,63 @@ description: 无刷新异步上传文件的实现浅析
 <a href="http://dont27.qiniudn.com/ajaxupload.png" target="_blank">查看原图</a>
 
 结合代码看，会发现，iframe的onload事件绑定是在form submit之后，如果前面说的表单提交是同步行为的话，那么在这里就会有疑惑了，但这里恰恰好说明了，submit是一个异步行为，通过断点调试也可以发现这一问题，就是当js执行到submit之后，在后续js还没执行结束之前，我们看到network是不会立即发起http请求的（chrome 开发者工具查看），后来在[Stack Overflow](https://stackoverflow.com/questions/7985930/is-form-submit-synchronous-or-async)得到类似的说明。
+
+测试例子代码：
+
+{%highlight html%}
+<form id="form" action="/api/to" method="post">
+    <input type="text" name="hey" value="dont">
+    <input type="submit" id="btn" value="submit">
+</form>
+<script>
+    (function() {
+        var form = document.querySelector('#form'),
+            btn = document.querySelector('#btn');
+            btn.onclick = function(){
+                console.log('click');
+                form.submit();
+                console.log('after submit action');//设断点查看network
+                setTimeout(function(){
+                    console.log('timeout quick');//设断点查看network和console
+                },0);
+            };
+            form.onsubmit=function(){
+                console.log('submit');
+            };
+    })();
+</script>
+{%endhighlight%}
+
+服务我用koa1实现的
+
+{%highlight javascript%}
+//注意koa1的话，koa-static最好用2.x,不然node版本不支持async的话可能报错
+var app = require('koa')();
+var router = require('koa-router')();
+var serve = require('koa-static');
+
+router.get('/',function *(next){
+    this.body = '<p>hello world</p>';
+});
+router.post('/api/to',function *(next){
+    console.log('catch the request');
+    console.log(this.request);
+    this.body = yield new Promise(function(reso,reje){
+                setTimeout(function(){
+                    reso('hellp');
+                },2000)
+            }).then(function(data){
+                return data
+            });
+});
+app.use(serve(__dirname));
+app.use(router.routes());
+app.listen(4008);
+{%endhighlight%}
+
+以上代码实验结果是，表单提交事件会在click事件回调代码执行完毕之后才发起，console输出结果是： 
+
+> click->after submit action->submit->timeout quick 
 
 ### 小困惑
 
