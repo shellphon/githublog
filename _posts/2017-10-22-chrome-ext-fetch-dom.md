@@ -107,7 +107,7 @@ event.origin则是指代发送方的origin，是一个字符串，由协议+'://
 
 ### updated:
 
-顺手做了个简单的示例demo：https://coding.net/u/dont/p/my-chrome-ext/git/tree/master/little-search
+顺手做了个简单的[示例demo](https://coding.net/u/dont/p/my-chrome-ext/git/tree/master/little-search)
 
 
 
