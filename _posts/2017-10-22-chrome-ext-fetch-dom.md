@@ -45,7 +45,7 @@ https://www.baidu.com/s?q1=关键词
 ~~~
 "content_scripts": [
     {
-      "matches": ["https://www.baidu.com/s"],
+      "matches": ["https://www.baidu.com/s?*"],
       "js": ["collect.js"],
       "all_frames":true,
       "run_at":"document_end"
@@ -104,4 +104,10 @@ event.origin则是指代发送方的origin，是一个字符串，由协议+'://
 在这期间，还可能遇到被嵌入的页面对iframe有一定的阻挡措施，比如页面脚本检测当前被iframe嵌入，且父页面和自己不同域的情况下，脚本会强行让父页面直接跳转到子页面的地址去，这个时候就需要设置iframe的一个html5属性`sandbox`来限制子页面脚本修改父页面navigation的行为。
 
 更多iframe介绍可以[看这里](https://segmentfault.com/a/1190000004502619).
+
+### updated:
+
+顺手做了个简单的示例demo：https://coding.net/u/dont/p/my-chrome-ext/git/tree/master/little-search
+
+
 
