@@ -107,14 +107,14 @@
       var hm = document.createElement("script");
       var scrollPush = debounce(function(){
         var top = document.documentElement.scrollTop;
-        _hmt.push('_trackEvent', 'pagescroll', 'scroll', 'scrollTop', top);
+        _hmt.push(['_trackEvent', 'pagescroll', 'scroll', 'scrollTop', top]);
       }, 600);
       hm.onload = function() {
         window.addEventListener('scroll', function() {
           scrollPush();
         });
         document.documentElement.addEventListener('click', function(e){if(e.target.nodeName==='A'){
-          _hmt.push('_trackEvent', 'link', 'click', e.target.baseURI, e.target.offsetTop);
+          _hmt.push(['_trackEvent', 'link', 'click', e.target.baseURI, e.target.offsetTop]);
         }}, true)
       };
       hm.src = "https://hm.baidu.com/hm.js?9431a4bd12920a2d9608870eee26264d";
