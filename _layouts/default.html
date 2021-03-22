@@ -105,9 +105,26 @@
     var _hmt = _hmt || [];
     (function() {
       var hm = document.createElement("script");
+      var areaList = [
+        {num: 0.2, name: '20%', reported: false},
+        {num: 0.4, name: '40%', reported: false},
+        {num: 0.6, name: '60%', reported: false},
+        {num: 0.8, name: '80%', reported: false}
+      ]
       var scrollPush = debounce(function(){
         var top = document.documentElement.scrollTop;
-        _hmt.push(['_trackEvent', 'pagescroll', 'scroll', top, 1]);
+        var winH = window.innerHeight;
+        var bodyH = document.body.clientHeight;
+        // skip one screen page
+        if (winH === bodyH) return;
+        var percent = top / (bodyH - winH);
+        for(var i=0;i<areaList.length;i++){
+          if(reported) continue;
+          if(areaList[i].num < percent){
+            areaList[i].reported = true;
+            _hmt.push(['_trackEvent', 'pagescroll', 'scroll', areaList[i].name]);
+          }
+        }
       }, 600);
       hm.onload = function() {
         window.addEventListener('scroll', function() {
