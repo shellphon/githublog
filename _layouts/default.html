@@ -119,7 +119,7 @@
         if (winH === bodyH) return;
         var percent = top / (bodyH - winH);
         for(var i=0;i<areaList.length;i++){
-          if(reported) continue;
+          if(areaList[i].reported) continue;
           if(areaList[i].num < percent){
             areaList[i].reported = true;
             _hmt.push(['_trackEvent', window.location.protocol+"//"+location.host+window.location.pathname, 'scroll', areaList[i].name]);
