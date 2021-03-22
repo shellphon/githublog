@@ -107,7 +107,7 @@
       var hm = document.createElement("script");
       var scrollPush = debounce(function(){
         var top = document.documentElement.scrollTop;
-        _hmt.push(['_trackEvent', 'pagescroll', 'scroll', 'scrollTop', top]);
+        _hmt.push(['_trackEvent', 'pagescroll', 'scroll', top, 1]);
       }, 600);
       hm.onload = function() {
         window.addEventListener('scroll', function() {
