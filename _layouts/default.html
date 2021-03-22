@@ -114,7 +114,7 @@
       var scrollPush = debounce(function(){
         var top = document.documentElement.scrollTop;
         var winH = window.innerHeight;
-        var bodyH = document.body.clientHeight;
+        var bodyH = document.body.clientHeight || document.body.scrollHeight || document.documentElement.scrollHeight;
         // skip one screen page
         if (winH === bodyH) return;
         var percent = top / (bodyH - winH);
