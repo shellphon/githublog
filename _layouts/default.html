@@ -122,7 +122,7 @@
           if(reported) continue;
           if(areaList[i].num < percent){
             areaList[i].reported = true;
-            _hmt.push(['_trackEvent', 'pagescroll', 'scroll', areaList[i].name]);
+            _hmt.push(['_trackEvent', window.location.protocol+"//"+location.host+window.location.pathname, 'scroll', areaList[i].name]);
           }
         }
       }, 600);
